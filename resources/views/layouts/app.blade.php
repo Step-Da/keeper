@@ -8,18 +8,19 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('site-title')</title>
+        <title>@yield('app-site-title')</title>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
-        <!-- Fonts -->
+        <!-- Link -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-        <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
+        <link rel="icon" href="{{ URL::asset('favicon.svg') }}" type="image/x-icon"/> 
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
     </head>
     <body>
         <div id="app">

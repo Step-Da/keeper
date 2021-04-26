@@ -39,9 +39,10 @@
           <p class="leading-normal text-2xl mb-8">
             Удобное решения для управления проектами!
           </p>
-          <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <a href="{{ route('login-page') }}" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Начать!
-          </button>
+          </a>
+
         </div>
         <!--Right Col-->
         <div class="w-full md:w-3/5 py-5 text-center">
@@ -71,8 +72,8 @@
               в реальном времени 
               <br />
               <br />
-              {{-- Images from:
-              <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> --}}
+              {{-- 
+              <a class="text-pink-500 underline" href=""></a> --}}
             </p>
           </div>
           <div class="w-full sm:w-1/2 p-6">
@@ -92,8 +93,8 @@
                 Управляй процессом выполнения поставленных задач в реальном времени без затрат больших ресурсов.
                 <br />
                 <br />
-                {{-- Images from:
-                <a class="text-pink-500 underline" href="https://undraw.co/">undraw.co</a> --}}
+                {{--
+                <a class="text-pink-500 underline" href=""></a> --}}
               </p>
             </div>
           </div>
@@ -108,12 +109,12 @@
       <div class="w-full mb-4">
         <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
       </div>
-      <h3 class="my-4 text-3xl leading-tight">
+      <h3 class="my-4 text-3xl leading-tight mb-5">
         Для начала работы с Keeper создайте аккаунт 
       </h3>
-      <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+      <a href="{{ route('login-page') }}" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
         Начать!
-      </button>
+      </a>
     </section>
   </body>
 </html>

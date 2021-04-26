@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
+@section('app-site-title', 'Регистрация в Keeper')
+
 @section('content')
 <div class="bg-white font-family-karla h-screen">
     <div class="w-full flex flex-wrap">
         <div class="w-full md:w-1/2 flex flex-col">
             <div class="flex justify-center md:justify-start pt-12 md:pl-12 md:-mb-24">
-                <img class="p-4 h-32 w-32" src="{{ asset('favicon.svg') }}">
+                <a href="{{ route('landing-page') }}"><img class="p-4 h-32 w-32" src="{{ asset('favicon.svg') }}"></a>
             </div>
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
                 <p class="text-center text-3xl">Регистрация.</p>
@@ -59,7 +61,7 @@
                     </button>
                 </form>
                 <div class="text-center pt-12 pb-12">
-                    <p>У вас уже есть аккаунт? <a href="login.html" class="underline font-semibold">Авторизуйтесь.</a></p>
+                    <p>У вас уже есть аккаунт? <a href="{{ route('login-page')}}" class="underline font-semibold">Авторизуйтесь.</a></p>
                 </div>
             </div>
         </div>

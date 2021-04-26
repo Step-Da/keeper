@@ -14,10 +14,17 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('auth/register');
-});
-
 Auth::routes();
+Route::get('/auth/login', function(){
+    return view('auth.login');
+})->name('login-page');
+
+Route::get('/auth/register', function(){
+    return view('auth.register');
+})->name('register-page');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('landing');
+})->name('landing-page');
