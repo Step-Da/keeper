@@ -26,5 +26,5 @@ Route::get('/auth/register', function(){
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
-    return view('landing');
+     return Auth::check() ? (view('home')) : (view('landing'));
 })->name('landing-page');

@@ -17,11 +17,11 @@
                         <label for="name" class="text-lg">{{ __('Роль') }}</label>
                         <div class="space-y-4">
                             <div class="inline-block items-center mr-5">  
-                                <input id="main-role" name="role" type="radio" value="manager" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <input id="main-role" name="role" type="radio" value="manager" required class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                                 <label for="main-role" class="ml-2 text-sm font-medium text-gray-700">Менеджер</label>
                             </div>  
                             <div class="inline-block items-center">
-                              <input id="secondary-role" name="role" type="radio" value="worker" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                              <input id="secondary-role" name="role" type="radio" value="worker" required class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
                               <label for="secondary-role" class="ml-2 text-sm font-medium text-gray-700">Рабочий</label>
                             </div>
                         </div>
@@ -63,9 +63,9 @@
                         </div>
                     </div>
                     <div class="flex flex-col pt-4">
-                        <label for="password-confirm" class="text-lg">{{ __('Подтверждение пароля')}}</label>
+                        <label for="password-confirm" class="text-lg">{{ __('Подтверждение пароля') }}</label>
                         <div class="register-password-confirm-box">
-                            <input id="password-confirm" name="password-confirm" required autocomplete="new-password" type="password"
+                            <input id="password-confirm" type="password"  name="password_confirmation" required autocomplete="new-password" 
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline">
                         </div>
                     </div>

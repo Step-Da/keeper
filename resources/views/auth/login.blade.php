@@ -28,7 +28,7 @@
                     <div class="flex flex-col pt-4">
                         <label class="text-lg" for="password">{{ __('Пароль') }}</label>
                         <div class="login-password-box">
-                            <input id="password" type="password" name="email" required autocomplete="current-password" 
+                            <input id="password" type="password" name="password" required autocomplete="current-password" 
                             class="@error('password') is-invalid @enderror shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" placeholder="Введите пароль">
                             @error('password')
                                 <span role="alert" class="invalid-feedback">
