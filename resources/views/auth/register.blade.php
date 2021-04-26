@@ -13,6 +13,19 @@
                 <p class="text-center text-3xl">Регистрация.</p>
                 <form method="POST" action="{{ route('register') }}" class="flex flex-col pt-3 md:pt-8">
                     @csrf
+                    <div class="register-role-box">
+                        <label for="name" class="text-lg">{{ __('Роль') }}</label>
+                        <div class="space-y-4">
+                            <div class="inline-block items-center mr-5">  
+                                <input id="main-role" name="role" type="radio" value="manager" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                                <label for="main-role" class="ml-2 text-sm font-medium text-gray-700">Менеджер</label>
+                            </div>  
+                            <div class="inline-block items-center">
+                              <input id="secondary-role" name="role" type="radio" value="worker" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                              <label for="secondary-role" class="ml-2 text-sm font-medium text-gray-700">Рабочий</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="flex flex-col pt-4">
                         <label for="name" class="text-lg">{{ __('Логин') }}</label>
                         <div class="register-name-box">
