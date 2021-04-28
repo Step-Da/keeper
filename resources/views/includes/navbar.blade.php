@@ -5,29 +5,42 @@
             <p class="text-gray-800 no-underline hover:no-underline font-bold text-2xl lg:text-4xl">{{ __('Keeper') }}</p>
         </div>
         <ul class="mt-12">
-            <li class="flex w-full justify-between text-indigo-700 cursor-pointer items-center mb-6">
+            <li class="flex w-full justify-between text-gray-600 cursor-pointer items-center mb-6">
                 <div class="flex items-center">
-                    <span class="text-sm">Test 1</span>
+                    <div class="flex items-center justify-center text-xs">
+                        <a class="text-tg" href="{{ route('account-main-page') }}">
+                            <i class="fas fa-qrcode mr-3"></i>
+                            <span class="text-sm">Главная</span>
+                        </a>
+                    </div>
                 </div>
             </li>
-            <li
-                class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
+            <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
                 <div class="flex items-center">
-                    <span class="text-sm">Test 2</span>
+                    <div class="flex items-center justify-center text-xs">
+                        <a class="text-tg" href="{{ route('account-users-page') }}">
+                            <i class="fas fa-user-friends mr-3"></i>
+                            <span class="text-sm">Пользователи</span>
+                        </a>   
+                    </div>
                 </div>
             </li>
-            <li
-                class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
+            <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
                 <div class="flex items-center">
-                    <span class="text-sm">Test 3</span>
+                    <div class="flex items-center justify-center text-xs">
+                        <a class="text-tg" href="{{ route('account-projects-page') }}">
+                            <i class="fas fa-tasks mr-3"></i>
+                            <span class="text-sm">Проекты</span>
+                        </a>
+                    </div>    
                 </div>
             </li>
-            <li
+            {{-- <li
                 class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
                 <div class="flex items-center">
                     <span class="text-sm">Test 4</span>
                 </div>
-            </li>
+            </li> --}}
         </ul>
     </div>
 </div>

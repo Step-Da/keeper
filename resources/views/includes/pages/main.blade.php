@@ -3,5 +3,5 @@
 @section('account-site-title', 'Keeper - аккаунт ('. Auth::user()->name .')')
 
 @section('content')
-    Text
+    Main Page
 @endsection

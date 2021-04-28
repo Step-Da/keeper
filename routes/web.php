@@ -28,3 +28,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', function () {
     return Auth::check() ? (view('home')) : (view('landing'));
 })->name('landing-page');
+
+Route::get('/account/main', function(){
+    return view('includes.pages.main');
+})->name('account-main-page');
+
+Route::get('/account/users', function(){
+    return view('includes.pages.users');
+})->name('account-users-page');
+
+Route::get('/account/projects', function(){
+    return view('includes.pages.projects');
+})->name('account-projects-page');
