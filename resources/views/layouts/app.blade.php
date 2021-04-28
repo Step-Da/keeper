@@ -21,9 +21,10 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" />
+
     </head>
     <body>
-        <div id="app">
+        <div>
             <main>
                 @yield('content')
             </main>

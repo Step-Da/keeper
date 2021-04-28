@@ -1,8 +1,13 @@
-require('./bootstrap'); // Bootstrap стили для JavaScript
-require('./lading'); // Frontend логика работы landing page
-
 window.Vue = require('vue');
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+window.$ = window.jQuery = require('jquery'); 
+
+$(document).ready(() => {
+    require('./bootstrap'); 
+    require('./lading');
+    require('./navbar');
+});
+
+// Vue.component('v-appp', require('./components/Acc.vue').default);
 
 const app = new Vue({
     el: '#app',
