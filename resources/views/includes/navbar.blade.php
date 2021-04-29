@@ -29,18 +29,22 @@
                 <div class="flex items-center">
                     <div class="flex items-center justify-center text-xs">
                         <a class="text-tg" href="{{ route('account-projects-page') }}">
-                            <i class="fas fa-tasks mr-3"></i>
+                            <i class="fas fa-project-diagram mr-3"></i>
                             <span class="text-sm">Проекты</span>
                         </a>
                     </div>    
                 </div>
             </li>
-            {{-- <li
-                class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
+            <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
                 <div class="flex items-center">
-                    <span class="text-sm">Test 4</span>
+                    <div class="flex items-center justify-center text-xs">
+                        <a class="text-tg" href="{{ route('account-todos-page') }}">
+                            <i class="fas fa-tasks mr-3"></i>
+                            <span class="text-sm">Общие задачи</span>
+                        </a>
+                    </div>    
                 </div>
-            </li> --}}
+            </li>
         </ul>
     </div>
 </div>

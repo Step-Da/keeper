@@ -23,10 +23,10 @@ Route::get('/auth/register', function(){
     return view('auth.register');
 })->name('register-page');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/account/main', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
-    return Auth::check() ? (view('home')) : (view('landing'));
+    return Auth::check() ? (view('includes.pages.main')) : (view('landing'));
 })->name('landing-page');
 
 Route::get('/account/main', function(){
@@ -40,3 +40,7 @@ Route::get('/account/users', function(){
 Route::get('/account/projects', function(){
     return view('includes.pages.projects');
 })->name('account-projects-page');
+
+Route::get('/account/todos', function(){
+    return view('includes.pages.todos');
+})->name('account-todos-page');
