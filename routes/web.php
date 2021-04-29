@@ -23,7 +23,7 @@ Route::get('/auth/register', function(){
     return view('auth.register');
 })->name('register-page');
 
-Route::get('/hhh', 'HomeController@index')->name('home');
+Route::get('/account/main', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
     return Auth::check() ? (view('includes.pages.main')) : (view('landing'));
