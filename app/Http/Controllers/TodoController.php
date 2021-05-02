@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Todo;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Frontend;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -15,7 +17,9 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return Todo::orderBy('completed_at', 'DESC')->get();
+        return view('includes.pages.todos', [
+            "data" =>Todo::orderBy('completed_at', 'ASC')->get()
+        ]);    
     }
 
     /**
@@ -27,8 +31,8 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         $newTodo = new Todo;
-        $newTodo->name = $request->todo["name"];
-        $newTodo->user_id = $request->todo["user_id"];
+        $newTodo->name = $request->name;
+        $newTodo->user_id = $request->user_id;
         $newTodo->save();
 
         return $newTodo;
@@ -45,8 +49,8 @@ class TodoController extends Controller
     {
         $existingTodo = Todo::find($id);
         if($existingTodo){
-            $existingTodo->status = $request->todo['status'] ? true : false;
-            $existingTodo->completed_at = $request->todo['status'] ? Carbon::now() : null;
+            $existingTodo->status = $request->status ? true : false;
+            $existingTodo->completed_at = $request->status ? Carbon::now() : null;
             $existingTodo->save();
 
             return $existingTodo;

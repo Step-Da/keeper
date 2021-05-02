@@ -41,6 +41,4 @@ Route::get('/account/projects', function(){
     return view('includes.pages.projects');
 })->name('account-projects-page');
 
-Route::get('/account/todos', function(){
-    return view('includes.pages.todos');
-})->name('account-todos-page');
+Route::get('/account/todos', 'TodoController@index')->name('account-todos-page');

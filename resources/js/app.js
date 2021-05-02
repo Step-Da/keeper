@@ -1,10 +1,11 @@
 window.Vue = require('vue');
-window.$ = window.jQuery = require('jquery'); 
+window.$ = window.jQuery = require('jquery');
 
 $(document).ready(() => {
     require('./bootstrap'); 
     require('./lading');
     require('./navbar');
+    require('./todo');
 });
 
 // Vue.component('v-appp', require('./components/Acc.vue').default);
