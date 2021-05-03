@@ -10970,19 +10970,6 @@ a.text-dark:focus {
   text-decoration: line-through;
 }
 
-.remove-todo-item {
-  color: #ccc;
-  visibility: hidden;
-}
-
-.remove-todo-item:hover {
-  color: #5f5f5f;
-}
-
-.todo-item:hover .remove-todo-item {
-  visibility: visible;
-}
-
 div.checker {
   width: 18px;
   height: 18px;

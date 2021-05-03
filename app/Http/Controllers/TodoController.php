@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class TodoController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     *  Отображение todo списка у пользователя с сортировкой "ASC"
      *
      * @return \Illuminate\Http\Response
      */
@@ -23,10 +23,11 @@ class TodoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Сохраните созданный todo в хранилище (базу данных)
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request Данный переданные пользователем
      * @return \Illuminate\Http\Response
+     * @return mixed $newTodo Новая запись todo в базе данных
      */
     public function store(Request $request)
     {
@@ -39,10 +40,10 @@ class TodoController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновите указанный todo в хранилище (базе данных)
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request Данные переданные пользователем
+     * @param  int  $id Идентификатор указанной todo
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -60,9 +61,9 @@ class TodoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаления указанной todo из хранилища (базы данных)
      *
-     * @param  int  $id
+     * @param  int  $id Идентификатор указанной todo
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

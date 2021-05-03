@@ -24,4 +24,4 @@ Route::prefix('/todo')->group(function(){
     Route::post('/store', [TodoController::class, 'store']);
     Route::put('/{id}', [TodoController::class, 'update']);
     Route::delete('/{id}', [TodoController::class, 'destroy']);
-});//
+});

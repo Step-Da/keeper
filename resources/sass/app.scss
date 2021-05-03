@@ -1,10 +1,12 @@
-// Fonts
+// Шрифты
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+// Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// Variables
+// Переменные
 @import 'variables';
 
-@import './styles/lading.scss';
-@import './styles/todo.scss';
+// Стили web-ресурса
+@import './styles/landing.scss'; // Подклбчение стилей для landing page
+@import './styles/todo.scss';  // Подключение стилей для todo page на account layout

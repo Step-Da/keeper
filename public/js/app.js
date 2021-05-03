@@ -49602,16 +49602,22 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // Подключение JavaScript-фреймворка Vue.js
+
+window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // Подключение библиотеки Jquery
+
 $(document).ready(function () {
-  __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+  __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Подключение стилей Bootstrap
 
-  __webpack_require__(/*! ./lading */ "./resources/js/lading.js");
 
-  __webpack_require__(/*! ./navbar */ "./resources/js/navbar.js");
+  __webpack_require__(/*! ./lading */ "./resources/js/lading.js"); // Подключение логики работы landing page
 
-  __webpack_require__(/*! ./todo */ "./resources/js/todo.js");
+
+  __webpack_require__(/*! ./navbar */ "./resources/js/navbar.js"); // Подключение логики работы navbar на accout layout
+
+
+  __webpack_require__(/*! ./todo */ "./resources/js/todo.js"); // Подкелючение логики работы todo list на todo page 
+
 }); // Vue.component('v-appp', require('./components/Acc.vue').default);
 
 var app = new Vue({
@@ -49734,6 +49740,12 @@ function dropdownHandler(element) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+/**
+ * Изменение статуса выполения глабальной задачт в базе данных
+ * 
+ * @param {number} todoId Id выбранной задачи
+ * @param {boolean} newStatus Новый стутус задачи
+ */
 function changeStatusTodo(todoId, newStatus) {
   axios.put('/api/todo/' + todoId, {
     status: newStatus
@@ -49745,6 +49757,10 @@ function changeStatusTodo(todoId, newStatus) {
     console.log(error);
   });
 }
+/**
+ * Логика работы и изменения стутусов задачи в листе
+ */
+
 
 function todo() {
   $('.todo-list .todo-item input').on('click', function () {
@@ -49780,14 +49796,19 @@ function todo() {
     } else {
       $('.todo-item .checker span.checked input').click();
     }
-  });
-  $('.remove-todo-item').click(function () {
-    $(this).parent().remove();
-  });
+  }); // $('.remove-todo-item').click(function() {
+  //     $(this).parent().remove();
+  // });
 }
 
 ;
 todo();
+/**
+ * Запись новой задачи в базу данных
+ * 
+ * @param {string} todo Текст(содержание) новой задачи 
+ * @param {number} user Id потльзователя, который создал задачу
+ */
 
 function dataBaseRecorderTodo(todo, user) {
   axios.post('/api/todo/store', {

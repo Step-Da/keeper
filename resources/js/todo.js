@@ -1,3 +1,9 @@
+/**
+ * Изменение статуса выполения глабальной задачт в базе данных
+ * 
+ * @param {number} todoId Id выбранной задачи
+ * @param {boolean} newStatus Новый стутус задачи
+ */
 function changeStatusTodo(todoId, newStatus){
     axios.put('/api/todo/' + todoId, {
         status: newStatus
@@ -10,6 +16,9 @@ function changeStatusTodo(todoId, newStatus){
     });
 }
 
+/**
+ * Логика работы и изменения стутусов задачи в листе
+ */
 function todo() { 
     $('.todo-list .todo-item input').on('click', function() {
     if($(this).is(':checked')) { $(this).parent().parent().parent().toggleClass('complete'); } 
@@ -46,13 +55,19 @@ $('#uniform-all-complete input').on('click', function() {
     else { $('.todo-item .checker span.checked input').click(); }
 });
 
-$('.remove-todo-item').click(function() {
-    $(this).parent().remove();
-});
+// $('.remove-todo-item').click(function() {
+//     $(this).parent().remove();
+// });
 };
 
 todo();
 
+/**
+ * Запись новой задачи в базу данных
+ * 
+ * @param {string} todo Текст(содержание) новой задачи 
+ * @param {number} user Id потльзователя, который создал задачу
+ */
 function dataBaseRecorderTodo(todo, user){
     axios.post('/api/todo/store',{
         name: todo,

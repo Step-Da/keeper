@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateTodosTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Запуск миграции по созданию таблицы Todos
      *
      * @return void
      */
@@ -25,7 +25,7 @@ class CreateTodosTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Откат миграции по созданию таблицы Todos
      *
      * @return void
      */
