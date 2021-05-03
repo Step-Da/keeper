@@ -29,9 +29,7 @@ Route::get('/', function () {
     return Auth::check() ? (view('includes.pages.main')) : (view('landing'));
 })->name('landing-page');
 
-Route::get('/account/main', function(){
-    return view('includes.pages.main');
-})->name('account-main-page');
+Route::get('/account/main', 'HomeController@index')->name('account-main-page');
 
 Route::get('/account/users', function(){
     return view('includes.pages.users');

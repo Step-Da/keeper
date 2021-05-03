@@ -49616,7 +49616,10 @@ $(document).ready(function () {
   __webpack_require__(/*! ./navbar */ "./resources/js/navbar.js"); // Подключение логики работы navbar на accout layout
 
 
-  __webpack_require__(/*! ./todo */ "./resources/js/todo.js"); // Подкелючение логики работы todo list на todo page 
+  __webpack_require__(/*! ./todo */ "./resources/js/todo.js"); // Подключение логики работы todo list на todo page
+
+
+  __webpack_require__(/*! ./supporting/counter */ "./resources/js/supporting/counter.js"); // Подключение логики работы виджита counter
 
 }); // Vue.component('v-appp', require('./components/Acc.vue').default);
 
@@ -49730,6 +49733,30 @@ function dropdownHandler(element) {
   var single = element.getElementsByTagName("ul")[0];
   single.classList.toggle("hidden");
 }
+
+/***/ }),
+
+/***/ "./resources/js/supporting/counter.js":
+/*!********************************************!*\
+  !*** ./resources/js/supporting/counter.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Анимация работы виджета counter на main page
+ */
+$('.counter').each(function () {
+  $(this).prop('Counter', 0).animate({
+    Counter: $(this).text()
+  }, {
+    duration: 3500,
+    easing: 'swing',
+    step: function step(now) {
+      $(this).text(Math.ceil(now));
+    }
+  });
+});
 
 /***/ }),
 

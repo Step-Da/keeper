@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Todo;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Создание нового экземпляра контроллера
      *
      * @return void
      */
@@ -17,12 +18,14 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Отображение информации для пользователя на main page
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('includes.pages.main');
+        return view('includes.pages.main', [
+            'todo' => Todo::count(),
+        ]);
     }
 }
