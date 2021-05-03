@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,4 +25,8 @@ Route::prefix('/todo')->group(function(){
     Route::post('/store', [TodoController::class, 'store']);
     Route::put('/{id}', [TodoController::class, 'update']);
     Route::delete('/{id}', [TodoController::class, 'destroy']);
+});
+
+Route::prefix('/user')->group(function(){
+    Route::delete('/{id}', [UserController::class, 'destroy']);
 });

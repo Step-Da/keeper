@@ -31,9 +31,7 @@ Route::get('/', function () {
 
 Route::get('/account/main', 'HomeController@index')->name('account-main-page');
 
-Route::get('/account/users', function(){
-    return view('includes.pages.users');
-})->name('account-users-page');
+Route::get('/account/users', 'UserController@index')->name('account-users-page');
 
 Route::get('/account/projects', function(){
     return view('includes.pages.projects');

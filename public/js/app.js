@@ -49621,6 +49621,9 @@ $(document).ready(function () {
 
   __webpack_require__(/*! ./supporting/counter */ "./resources/js/supporting/counter.js"); // Подключение логики работы виджита counter
 
+
+  __webpack_require__(/*! ./supporting/userpanel */ "./resources/js/supporting/userpanel.js"); // подключение логики работы таблицы на user page
+
 }); // Vue.component('v-appp', require('./components/Acc.vue').default);
 
 var app = new Vue({
@@ -49755,6 +49758,28 @@ $('.counter').each(function () {
     step: function step(now) {
       $(this).text(Math.ceil(now));
     }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/supporting/userpanel.js":
+/*!**********************************************!*\
+  !*** ./resources/js/supporting/userpanel.js ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Удаление аккаунта пользователя на странице user page
+ */
+$('.delete-user-target').on('click', function () {
+  axios["delete"]('/api/user/' + $(this).val()).then(function (response) {
+    if (response.status == 200) {
+      console.log('the selected user account has been deleted');
+    }
+  })["catch"](function (error) {
+    console.log(error);
   });
 });
 

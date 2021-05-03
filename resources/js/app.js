@@ -7,6 +7,7 @@ $(document).ready(() => {
     require('./navbar'); // Подключение логики работы navbar на accout layout
     require('./todo'); // Подключение логики работы todo list на todo page
     require('./supporting/counter'); // Подключение логики работы виджита counter
+    require('./supporting/userpanel'); // подключение логики работы таблицы на user page
 });
 
 // Vue.component('v-appp', require('./components/Acc.vue').default);
@@ -14,3 +15,4 @@ $(document).ready(() => {
 const app = new Vue({
     el: '#app',
 });
+
