@@ -26,7 +26,7 @@
             <div class="flex flex-row items-center justify-between">
                 <div class="flex flex-col">
                     <div class="text-xs uppercase font-light text-gray-500">Сотрудники</div>
-                    <div class="text-xl font-bold text-yellow-600 counter">50</div>
+                    <div class="text-xl font-bold text-yellow-600 counter">{{ $user }}</div>
                 </div>
                 <img class="w-10 h-10" src="{{ asset('images/account/staff-group.svg')}}">
             </div>
