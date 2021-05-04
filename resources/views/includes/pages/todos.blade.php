@@ -3,6 +3,7 @@
 @section('account-site-title', 'Keeper - аккаунт ('. Auth::user()->name .')')
 
 @section('content')
+
 <input id="mirror-user-id" class="hidden" value="{{ Auth()->user()->id}}">
 <div class="container">
    <div class="row">
@@ -22,7 +23,7 @@
                      @if ($todo->status) <div class="todo-item p-3.5 my-1.5 rounded-sm bg-indigo-100 complete">
                      @else <div class="todo-item p-3.5 my-1.5 rounded-sm bg-indigo-100"> @endif
                         <div class="checker"><span class=""><input type="checkbox" value="{{ $todo->id }}" @if($todo->status) checked @endif></span></div>
-                        <span>{{ $todo->name }}</span>
+                        <span>{{ $todo->name }} <small>(<code>{{$todo->user->name}}</code>)</small></span>
                         <a href="javascript:void(0);" class="float-right remove-todo-item"><i class="icon-close"></i></a>
                      </div>
                   @endforeach
