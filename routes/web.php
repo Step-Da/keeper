@@ -37,4 +37,6 @@ Route::get('/account/projects', function(){
     return view('includes.pages.projects');
 })->name('account-projects-page');
 
+Route::post('/account/projects/create', 'ProjectController@store')->name('account-project-create');
+
 Route::get('/account/todos', 'TodoController@index')->name('account-todos-page');

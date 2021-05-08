@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -30,3 +31,7 @@ Route::prefix('/todo')->group(function(){
 Route::prefix('/user')->group(function(){
     Route::delete('/{id}', [UserController::class, 'destroy']);
 });
+
+// Route::prefix('/project')->group(function(){
+//     Route::post('/store', [ProjectController::class, 'store']);
+// });
