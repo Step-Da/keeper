@@ -11,7 +11,7 @@
                         <line x1="21" y1="21" x2="15" y2="15" />
                     </svg> --}}
                 </div>
-                <input type="text" placeholder="Search" class="border border-gray-100 focus:outline-none focus:border-indigo-700 rounded w-full text-sm text-gray-500 bg-gray-100 pl-12 py-2"/>
+                <input id="search-field" type="text" placeholder="Поиск ..." class="border border-gray-100 focus:outline-none focus:border-indigo-700 rounded w-full text-sm text-gray-500 bg-gray-100 pl-12 py-2"/>
             </div>
         </div>
         <div class="w-1/2 hidden lg:flex">

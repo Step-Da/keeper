@@ -5,7 +5,7 @@
 @section('content')
    @include('includes.widgets.linerbar')
    @foreach ($project as $element)
-      <div class="container project-library">
+      <div class="container project-library search">
          <div class="mb-4">
             <div class="card-project bg-white rounded-r-2xl rounded-lg shadow-2xl flex max-w-full m-1 overflow-hidden">
                <div class=" card-preview text-white max-w-sm">

@@ -8,6 +8,7 @@ $(document).ready(() => {
     require('./todo'); // Подключение логики работы todo list на todo page
     require('./supporting/counter'); // Подключение логики работы виджита counter
     require('./supporting/userpanel'); // подключение логики работы таблицы на user page
+    require('./supporting/search');
 });
 
 // Vue.component('v-appp', require('./components/Acc.vue').default);

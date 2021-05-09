@@ -49624,6 +49624,8 @@ $(document).ready(function () {
 
   __webpack_require__(/*! ./supporting/userpanel */ "./resources/js/supporting/userpanel.js"); // подключение логики работы таблицы на user page
 
+
+  __webpack_require__(/*! ./supporting/search */ "./resources/js/supporting/search.js");
 }); // Vue.component('v-appp', require('./components/Acc.vue').default);
 
 var app = new Vue({
@@ -49757,6 +49759,26 @@ $('.counter').each(function () {
     easing: 'swing',
     step: function step(now) {
       $(this).text(Math.ceil(now));
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/supporting/search.js":
+/*!*******************************************!*\
+  !*** ./resources/js/supporting/search.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$("#search-field").keyup(function () {
+  var filter = $(this).val();
+  $(".search").each(function () {
+    if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+      $(this).fadeOut();
+    } else {
+      $(this).show();
     }
   });
 });
