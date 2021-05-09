@@ -10,4 +10,9 @@ class Project extends Model
     {
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
+
+    public function groups()
+    {
+        return $this->hasMany('App\Models\Group', 'tasks_id');
+    }
 }

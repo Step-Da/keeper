@@ -2,14 +2,11 @@
     <div class="hidden lg:flex w-full pr-6">
         <div class="w-1/2 h-full hidden lg:flex items-center pl-6 pr-24">
             <div class="relative w-full">
-                <div class="text-gray-500 absolute ml-4 inset-0 m-auto w-4 h-4">
-                    {{-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search"
-                        width="16" height="16" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                        fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" />
-                        <circle cx="10" cy="10" r="7" />
-                        <line x1="21" y1="21" x2="15" y2="15" />
-                    </svg> --}}
+                <div class="text-gray-500 absolute ml-3 mt-2.5">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="stroke-current h-4 w-4" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
                 </div>
                 <input id="search-field" type="text" placeholder="Поиск ..." class="border border-gray-100 focus:outline-none focus:border-indigo-700 rounded w-full text-sm text-gray-500 bg-gray-100 pl-12 py-2"/>
             </div>
