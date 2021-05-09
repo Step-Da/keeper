@@ -14,7 +14,7 @@
    <div class="modal-dialog">
        <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tile</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Создание нового программного проекта</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                      <span aria-hidden="true">&times;</span>
                   </button>
@@ -43,7 +43,7 @@
                         <input id="path" name="path" type="text" class="form-control" placeholder="Имя нового программного проекта">
                      </div>
                   </div>
-                  <label>{{ Auth::id() }}</label>  
+                    
                </div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>

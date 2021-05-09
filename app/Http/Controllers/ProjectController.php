@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -41,8 +42,10 @@ class ProjectController extends Controller
         $newProject->name = $request->name;
         $newProject->description = $request->description;
         $newProject->path = $request->path;
-        $newProject->user_id = 1;
+        $newProject->user_id = Auth::user()->id;
         $newProject->save();
+
+        return redirect()->route('account-projects-page');
     }
 
     /**
