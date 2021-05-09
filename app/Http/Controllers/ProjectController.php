@@ -14,7 +14,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        return view('includes.pages.projects',[
+            'project' => Project::get(),
+        ]);
     }
 
     /**

@@ -15,7 +15,7 @@
             <div class="flex flex-row items-center justify-between">
                 <div class="flex flex-col">
                     <div class="text-xs uppercase font-light text-gray-500">Проекты в разработке</div>
-                    <div class="text-xl font-bold text-yellow-600 counter">10</div>
+                    <div class="text-xl font-bold text-yellow-600 counter">{{ $project }}</div>
                 </div>
                 <img class="w-10 h-10" src="{{ asset('images/account/progect.svg')}}">
             </div>
@@ -37,7 +37,7 @@
             <div class="flex flex-row items-center justify-between">
                 <div class="flex flex-col">
                     <div class="text-xs uppercase font-light text-gray-500">Ошибки при разработке</div>
-                    <div class="text-xl font-bold text-yellow-600 counter">{{ $todo }}</div>
+                    <div class="text-xl font-bold text-yellow-600 counter">100</div>
                 </div>
                 <img class="w-10 h-10" src="{{ asset('images/account/error.svg')}}">
             </div>

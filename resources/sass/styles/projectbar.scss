@@ -1,0 +1,47 @@
+.card-project h6 {
+    opacity: 0.6;
+	margin: 0;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.card-project h2 {
+    letter-spacing: 1px;
+	margin: 10px 0;
+}
+
+.card-preview {
+	background: linear-gradient(45deg, $secondary-landing-color, $primary-landing-color);;
+    padding: 30px;
+}
+
+.card-preview a {
+	display: inline-block;
+	font-size: 11px;
+	margin-top: 30px;
+	text-decoration: none;
+}
+
+.progress-bar-container {
+	top: 30px;
+	right: 30px;
+	width: 150px;
+}
+
+
+.progress-bar-line::after {
+	border-radius: 3px;
+	background-color: $progress-bar-success;
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 5px;
+	width: 66%;
+}
+
+.progress-text {
+	font-size: 12px;
+	opacity: 0.6;
+	letter-spacing: 1px;
+}

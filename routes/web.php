@@ -33,9 +33,7 @@ Route::get('/account/main', 'HomeController@index')->name('account-main-page');
 
 Route::get('/account/users', 'UserController@index')->name('account-users-page');
 
-Route::get('/account/projects', function(){
-    return view('includes.pages.projects');
-})->name('account-projects-page');
+Route::get('/account/projects', 'ProjectController@index')->name('account-projects-page');
 
 Route::post('/account/projects/create', 'ProjectController@store')->name('account-project-create');
 
