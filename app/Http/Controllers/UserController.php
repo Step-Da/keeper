@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Отображение списка пользовтелей
      *
      * @return \Illuminate\Http\Response
+     * @return mixed $data Данные профилей всех пользовальвателей в системе
      */
     public function index()
     {   
@@ -76,9 +77,9 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаление указанного профиля пользователя из базы данных
      *
-     * @param  int  $id
+     * @param  int  $id Идентификатор профиля пользователя в системе
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

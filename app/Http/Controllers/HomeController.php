@@ -23,6 +23,9 @@ class HomeController extends Controller
      * Отображение информации для пользователя на main page
      *
      * @return \Illuminate\Contracts\Support\Renderable
+     * @return int $todo Количество глобальных задач в системе для счетчика 
+     * @return int $user Количество профилей пользователей в систепме для счетчика 
+     * @return int $projects Количество программных проектов в системе для счетчика 
      */
     public function index()
     {

@@ -1,3 +1,6 @@
+/**
+ * Функция живого поиска объектов на странице пользователя
+ */
 $("#search-field").keyup(function(){
     var filter = $(this).val();
     $(".search").each(function(){

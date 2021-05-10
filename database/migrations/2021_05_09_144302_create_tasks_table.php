@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateTasksTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Запуск миграции по созданию таблицы Tasks
      *
      * @return void
      */
@@ -27,7 +27,7 @@ class CreateTasksTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Откат миграции по созданию таблицы Tasks
      *
      * @return void
      */

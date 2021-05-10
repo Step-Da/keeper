@@ -9,9 +9,10 @@ use Illuminate\Support\Facades\Auth;
 class ProjectController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Отображение списка программных проектов в систем
      *
      * @return \Illuminate\Http\Response
+     * @return mixed $project Данные о всех программных проектов в базе данных
      */
     public function index()
     {
@@ -31,9 +32,9 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Создание нового программного проекта и запись его в базу данных
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request Данные введенные пользователем
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)

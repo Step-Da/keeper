@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateProjectsTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Запуск миграции по созданию таблицы Projects
      *
      * @return void
      */
@@ -25,7 +25,7 @@ class CreateProjectsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Откат миграции по созданию таблицы Projects
      *
      * @return void
      */

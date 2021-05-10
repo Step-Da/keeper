@@ -7,8 +7,8 @@ $(document).ready(() => {
     require('./navbar'); // Подключение логики работы navbar на accout layout
     require('./todo'); // Подключение логики работы todo list на todo page
     require('./supporting/counter'); // Подключение логики работы виджита counter
-    require('./supporting/userpanel'); // подключение логики работы таблицы на user page
-    require('./supporting/search');
+    require('./supporting/userpanel'); // Подключение логики работы таблицы на user page
+    require('./supporting/search'); // Подключение логики работы живого поиска для web-ресурса
 });
 
 // Vue.component('v-appp', require('./components/Acc.vue').default);
