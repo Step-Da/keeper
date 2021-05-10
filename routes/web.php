@@ -38,3 +38,7 @@ Route::get('/account/projects', 'ProjectController@index')->name('account-projec
 Route::post('/account/projects/create', 'ProjectController@store')->name('account-project-create');
 
 Route::get('/account/todos', 'TodoController@index')->name('account-todos-page');
+
+Route::get('/account/project/{id}/kanban', function(){
+    return view('includes.pages.kanban');
+})->name('account-kanban-page');

@@ -49622,10 +49622,13 @@ $(document).ready(function () {
   __webpack_require__(/*! ./supporting/counter */ "./resources/js/supporting/counter.js"); // Подключение логики работы виджита counter
 
 
-  __webpack_require__(/*! ./supporting/userpanel */ "./resources/js/supporting/userpanel.js"); // подключение логики работы таблицы на user page
+  __webpack_require__(/*! ./supporting/userpanel */ "./resources/js/supporting/userpanel.js"); // Подключение логики работы таблицы на user page
 
 
-  __webpack_require__(/*! ./supporting/search */ "./resources/js/supporting/search.js");
+  __webpack_require__(/*! ./supporting/search */ "./resources/js/supporting/search.js"); // Подключение логики работы живого поиска для web-ресурса
+
+
+  __webpack_require__(/*! ./kanban */ "./resources/js/kanban.js");
 }); // Vue.component('v-appp', require('./components/Acc.vue').default);
 
 var app = new Vue({
@@ -49676,6 +49679,62 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/kanban.js":
+/*!********************************!*\
+  !*** ./resources/js/kanban.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var list_items = document.querySelectorAll('.list-item');
+var lists = document.querySelectorAll('.list');
+var draggedItem = null;
+var mirrorItem = null;
+var mirrorGroup = null;
+
+var _loop = function _loop(i) {
+  var item = list_items[i];
+  item.addEventListener('dragstart', function () {
+    draggedItem = item;
+    mirrorItem = item.id;
+    setTimeout(function () {
+      item.style.display = 'none';
+    }, 0);
+  });
+  item.addEventListener('dragend', function () {
+    console.log('Элемент: ' + mirrorItem + ' В группе: ' + mirrorGroup);
+    setTimeout(function () {
+      draggedItem.style.display = 'block';
+      draggedItem = null;
+    }, 0);
+  });
+
+  for (var j = 0; j < lists.length; j++) {
+    var list = lists[j];
+    list.addEventListener('dragover', function (e) {
+      e.preventDefault();
+    });
+    list.addEventListener('dragenter', function (e) {
+      e.preventDefault();
+      this.style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+    });
+    list.addEventListener('dragleave', function (e) {
+      this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+    });
+    list.addEventListener('drop', function (e) {
+      mirrorGroup = this.id;
+      this.append(draggedItem);
+      this.style.backgroundColor = 'rgba(0, 0, 0, 0.1)';
+    });
+  }
+};
+
+for (var i = 0; i < list_items.length; i++) {
+  _loop(i);
+}
 
 /***/ }),
 
@@ -49772,6 +49831,9 @@ $('.counter').each(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+/**
+ * Функция живого поиска объектов на странице пользователя
+ */
 $("#search-field").keyup(function () {
   var filter = $(this).val();
   $(".search").each(function () {

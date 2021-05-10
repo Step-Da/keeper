@@ -9,6 +9,7 @@ $(document).ready(() => {
     require('./supporting/counter'); // Подключение логики работы виджита counter
     require('./supporting/userpanel'); // Подключение логики работы таблицы на user page
     require('./supporting/search'); // Подключение логики работы живого поиска для web-ресурса
+    require('./kanban');
 });
 
 // Vue.component('v-appp', require('./components/Acc.vue').default);

@@ -11,7 +11,9 @@
                <div class=" card-preview text-white max-w-sm">
                   <h6 class="text-white">Наименование</h6>
                   <h2 class="text-gray-900">{{ $element->name }}</h2>
-                  <a href="#" class="text-gray-900">Просмотреть все задачи <i class="fas fa-chevron-right"></i></a>
+                  <a href="{{ route('account-kanban-page', ['id' => $element->id]) }}" class="text-gray-900">
+                     Просмотреть все задачи <i class="fas fa-chevron-right"></i>
+                  </a>
                </div>
                <div class="relative w-full p-7">
                   <div class="progress-bar-container absolute text-right">
