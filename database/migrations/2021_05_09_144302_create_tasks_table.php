@@ -18,11 +18,12 @@ class CreateTasksTable extends Migration
             $table->string('name', 25)->unique();
             $table->string('description', 25)->default('Описание задачи нет.');
             $table->string('type');
-            $table->unsignedBigInteger('worker_id');
-            $table->foreign('worker_id')->references('id')->on('users');
             $table->boolean('status')->default(false);
+            $table->timestamp('endpoint');
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
+            $table->unsignedBigInteger('worker_id');
+            $table->foreign('worker_id')->references('id')->on('users');
         });
     }
 
