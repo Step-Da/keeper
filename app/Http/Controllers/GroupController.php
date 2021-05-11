@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -34,7 +35,12 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newGroup = new Group;
+        $newGroup->name = $request->name;
+        $newGroup->project_id = $request->project_id;
+        $newGroup->save();
+
+        return $newGroup;
     }
 
     /**
@@ -54,9 +60,13 @@ class GroupController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, $task)
     {
-        //
+        $existingGroup = Group::find($id);
+        if($existingGroup){
+            $existingGroup->tasks_id = $task;
+            $existingGroup->save();
+        }
     }
 
     /**

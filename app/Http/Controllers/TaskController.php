@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Group;
+use App\Models\Project;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -11,9 +15,17 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $selectProject = Project::where('id', $id)->get();
+        $groups = Group::where('project_id', $id)->get();
+        $workers = User::where('role', 'worker')->get();
+        
+        return view('includes.pages.kanban',[
+            'project' => $selectProject,
+            'groups' => $groups,
+            'workers' => $workers,
+        ]);
     }
 
     /**
@@ -34,8 +46,20 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newTask = new Task;
+        $newTask->name = $request->name;
+        $newTask->description = $request->description;
+        $newTask->type = $request->type;
+        $newTask->level = $request->level;
+        $newTask->endpoint = $request->endpoint;
+        $newTask->worker_id = $request->worker;
+        $newTask->save();
+
+        return $newTask;
     }
+
+    
+
 
     /**
      * Display the specified resource.

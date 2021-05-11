@@ -39,6 +39,4 @@ Route::post('/account/projects/create', 'ProjectController@store')->name('accoun
 
 Route::get('/account/todos', 'TodoController@index')->name('account-todos-page');
 
-Route::get('/account/project/{id}/kanban', function(){
-    return view('includes.pages.kanban');
-})->name('account-kanban-page');
+Route::get('/account/project/{id}/kanban', 'TaskController@index')->name('account-kanban-page');

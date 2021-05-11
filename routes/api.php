@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,14 @@ Route::prefix('/todo')->group(function(){
 
 Route::prefix('/user')->group(function(){
     Route::delete('/{id}', [UserController::class, 'destroy']);
+});
+
+Route::prefix('/group')->group(function(){
+    Route::post('/store', [GroupController::class, 'store']);
+});
+
+Route::prefix('/task')->group(function(){
+    Route::post('/store', [TaskController::class, 'store']);
 });
 
 // Route::prefix('/project')->group(function(){

@@ -18,6 +18,7 @@ class CreateTasksTable extends Migration
             $table->string('name', 25)->unique();
             $table->string('description', 25)->default('Описание задачи нет.');
             $table->string('type');
+            $table->string('level');
             $table->boolean('status')->default(false);
             $table->timestamp('endpoint');
             $table->timestamp('completed_at')->nullable();

@@ -49736,6 +49736,37 @@ for (var i = 0; i < list_items.length; i++) {
   _loop(i);
 }
 
+$('#kanban-group-create').on('click', function () {
+  axios.post('/api/group/store', {
+    name: $('#group-name').val(),
+    project_id: $('#project-id').text()
+  }).then(function (response) {
+    if (response.status == 201) {
+      console.log('A new task group has been created');
+      location.reload();
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+});
+$('#kanban-task-create').on('click', function () {
+  axios.post('/api/task/store', {
+    name: $('#name').val(),
+    description: $('#description').val(),
+    type: $('#type').val(),
+    level: $('#lavel').val(),
+    endpoint: $('#endpoint').val(),
+    worker: $('#worker').val(),
+    group: $('#group').val()
+  }).then(function (response) {
+    if (response.status == 201) {
+      console.log('ok');
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+});
+
 /***/ }),
 
 /***/ "./resources/js/lading.js":

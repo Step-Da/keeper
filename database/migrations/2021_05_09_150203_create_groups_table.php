@@ -18,7 +18,7 @@ class CreateGroupsTable extends Migration
             $table->string('name', 25)->unique();
             $table->unsignedBigInteger('project_id');
             $table->foreign('project_id')->references('id')->on('projects');
-            $table->unsignedBigInteger('tasks_id');
+            $table->unsignedBigInteger('tasks_id')->nullable();
             $table->foreign('tasks_id')->references('id')->on('tasks');
             $table->timestamps();
         });
