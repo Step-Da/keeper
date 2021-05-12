@@ -31,7 +31,7 @@
                      <input id="group-name" name="name" type="text" class="form-control" placeholder="Название новой группы">
                   </div>
                </div>
-               <label class="hidden" id="project-id">{{ $element->id }}</label>
+               <label class="hidden" id="project">{{ $element->id }}</label>
             </div>
          </form>
          <div class="modal-footer">
@@ -113,7 +113,7 @@
                   <label class="text-lg" for="worker">{{ __('Рабочая группа') }}</label>
                   <div class="name-task-box">
                      <select id="group" name="group" class="form-select form-control">
-                        <option selected>Выбор работника для выполнения</option>
+                        <option selected>Выбо статротов группы</option>
                         @foreach ($groups as $group)
                            <option value="{{ $group->id }}">{{$group->name}}</option>
                         @endforeach

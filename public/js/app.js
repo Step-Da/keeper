@@ -49739,7 +49739,7 @@ for (var i = 0; i < list_items.length; i++) {
 $('#kanban-group-create').on('click', function () {
   axios.post('/api/group/store', {
     name: $('#group-name').val(),
-    project_id: $('#project-id').text()
+    project: $('#project').text()
   }).then(function (response) {
     if (response.status == 201) {
       console.log('A new task group has been created');

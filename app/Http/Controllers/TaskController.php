@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Group;
+use App\Models\Kanban;
 use App\Models\Project;
 use App\Models\Task;
 use App\Models\User;
@@ -55,6 +56,11 @@ class TaskController extends Controller
         $newTask->worker_id = $request->worker;
         $newTask->save();
 
+        $kanban = new Kanban;
+        $kanban->group_id = $request->group;
+        $kanban->task_id = $newTask->id;
+        $kanban->save();
+        
         return $newTask;
     }
 

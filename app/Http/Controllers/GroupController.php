@@ -37,7 +37,7 @@ class GroupController extends Controller
     {
         $newGroup = new Group;
         $newGroup->name = $request->name;
-        $newGroup->project_id = $request->project_id;
+        $newGroup->project_id = $request->project;
         $newGroup->save();
 
         return $newGroup;
