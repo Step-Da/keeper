@@ -40,7 +40,9 @@ Route::prefix('/group')->group(function(){
 
 Route::prefix('/task')->group(function(){
     Route::post('/store', [TaskController::class, 'store']);
+    Route::put('/move/task/{task}/group/{group}',[TaskController::class, 'update']);
 });
+
 
 // Route::prefix('/project')->group(function(){
 //     Route::post('/store', [ProjectController::class, 'store']);

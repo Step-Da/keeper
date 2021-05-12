@@ -2,7 +2,7 @@ const list_items = document.querySelectorAll('.list-item');
 const lists = document.querySelectorAll('.list');
 
 let draggedItem = null;
-let mirrorItem = null;
+let mirrorTask = null;
 let mirrorGroup = null;
 
 for (let i = 0; i < list_items.length; i++) {
@@ -10,14 +10,15 @@ for (let i = 0; i < list_items.length; i++) {
     
 	item.addEventListener('dragstart', function () {
 		draggedItem = item;
-        mirrorItem = item.id;
+        mirrorTask = item.id;
 		setTimeout(function () {
 			item.style.display = 'none';
 		}, 0)
 	});
 
 	item.addEventListener('dragend', function () { 
-        console.log('Элемент: ' + mirrorItem + ' В группе: ' + mirrorGroup)
+        // console.log('Элемент: ' + mirrorTask + ' В группе: ' + mirrorGroup)
+		сhangingGroupOnMove(mirrorTask, mirrorGroup);
 		setTimeout(function () {
 			draggedItem.style.display = 'block';
 			draggedItem = null;
@@ -48,14 +49,24 @@ for (let i = 0; i < list_items.length; i++) {
 	} 
 }
 
+function сhangingGroupOnMove(task, group){
+	axios.put('/api/task/move/task/'+ task + '/group/' + group).then(response =>{
+		if(response.status == 200){
+			console.log('Задача: ' + task + ' В группе: ' + group);
+		}
+	}).catch(error => {
+		console.log(error);
+	});
+}
+
 $('#kanban-group-create').on('click', function(){
 	axios.post('/api/group/store', {
 		name: $('#group-name').val(),
 		project: $('#project').text(),
 	}).then(response => {
 		if(response.status == 201){
-			console.log('A new task group has been created');
 			location.reload();
+			console.log('A new task group has been created');
 		}
 	}).catch(error => {
 		console.log(error);
@@ -73,7 +84,8 @@ $('#kanban-task-create').on('click', function(){
 		group: $('#group').val(),
 	}).then(response => {
 		if(response.status == 201){
-			console.log('ok');
+			location.reload();
+			console.log('New project record created');
 		}
 	}).catch(error => {
 		console.log(error);

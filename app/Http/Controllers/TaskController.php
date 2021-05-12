@@ -21,11 +21,13 @@ class TaskController extends Controller
         $selectProject = Project::where('id', $id)->get();
         $groups = Group::where('project_id', $id)->get();
         $workers = User::where('role', 'worker')->get();
+        $kanbans = Kanban::get();
         
         return view('includes.pages.kanban',[
             'project' => $selectProject,
             'groups' => $groups,
             'workers' => $workers,
+            'kanbans' => $kanbans,
         ]);
     }
 
@@ -60,7 +62,7 @@ class TaskController extends Controller
         $kanban->group_id = $request->group;
         $kanban->task_id = $newTask->id;
         $kanban->save();
-        
+
         return $newTask;
     }
 
@@ -96,9 +98,17 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $task, $group)
     {
-        //
+        $existingTask = Kanban::where(['task_id' => $task])->first();
+        if($existingTask){
+            $existingTask->group_id = $group;
+            $existingTask->save();
+            
+            return $existingTask;
+        }
+
+        return $existingTask;
     }
 
     /**

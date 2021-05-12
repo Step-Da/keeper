@@ -19,13 +19,8 @@ class Task extends Model
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
-    /**
-     * Связь с таблицей Groups по tasks_id
-     * 
-     * @return mixed $this Данные таблицы Groups для опредленной проектной задачи
-     */
-    public function groups()
+    public function kanbans()
     {
-        return $this->hasMany('App\Models\Group', 'tasks_id');
+        return $this->hasMany('App\Models\Kanban', 'task_id');
     }
 }
