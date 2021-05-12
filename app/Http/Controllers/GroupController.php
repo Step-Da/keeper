@@ -28,7 +28,7 @@ class GroupController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Создание новой группы для Kanban page и запись в базу данных
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -62,11 +62,7 @@ class GroupController extends Controller
      */
     public function edit($id, $task)
     {
-        $existingGroup = Group::find($id);
-        if($existingGroup){
-            $existingGroup->tasks_id = $task;
-            $existingGroup->save();
-        }
+        
     }
 
     /**

@@ -49619,6 +49619,9 @@ $(document).ready(function () {
   __webpack_require__(/*! ./todo */ "./resources/js/todo.js"); // Подключение логики работы todo list на todo page
 
 
+  __webpack_require__(/*! ./kanban */ "./resources/js/kanban.js"); // Подключение логики работы Kanban page на account layout
+
+
   __webpack_require__(/*! ./supporting/counter */ "./resources/js/supporting/counter.js"); // Подключение логики работы виджита counter
 
 
@@ -49627,8 +49630,6 @@ $(document).ready(function () {
 
   __webpack_require__(/*! ./supporting/search */ "./resources/js/supporting/search.js"); // Подключение логики работы живого поиска для web-ресурса
 
-
-  __webpack_require__(/*! ./kanban */ "./resources/js/kanban.js");
 }); // Vue.component('v-appp', require('./components/Acc.vue').default);
 
 var app = new Vue({
@@ -49691,9 +49692,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 var list_items = document.querySelectorAll('.list-item');
 var lists = document.querySelectorAll('.list');
-var draggedItem = null;
-var mirrorTask = null;
-var mirrorGroup = null;
+var draggedItem = null; // Объект, который перемещает пользователь
+
+var mirrorTask = null; // Идентификатор перемещенной проектной задачи
+
+var mirrorGroup = null; // Идентификатор группы, в котрую поместили проектную задачу
 
 var _loop = function _loop(i) {
   var item = list_items[i];
@@ -49705,7 +49708,6 @@ var _loop = function _loop(i) {
     }, 0);
   });
   item.addEventListener('dragend', function () {
-    // console.log('Элемент: ' + mirrorTask + ' В группе: ' + mirrorGroup)
     сhangingGroupOnMove(mirrorTask, mirrorGroup);
     setTimeout(function () {
       draggedItem.style.display = 'block';
@@ -49736,6 +49738,13 @@ var _loop = function _loop(i) {
 for (var i = 0; i < list_items.length; i++) {
   _loop(i);
 }
+/**
+ * Функция для отслеживания перемещения проектных задач пользователям по группам Kanban page
+ * 
+ * @param {number} task Идентификатор перемещенной проектной задачи
+ * @param {number} group Идентификатор группы, в которую перемещена проектная задача
+ */
+
 
 function сhangingGroupOnMove(task, group) {
   axios.put('/api/task/move/task/' + task + '/group/' + group).then(function (response) {
@@ -49746,6 +49755,10 @@ function сhangingGroupOnMove(task, group) {
     console.log(error);
   });
 }
+/**
+ * Создание новой группы для Kanban page
+ */
+
 
 $('#kanban-group-create').on('click', function () {
   axios.post('/api/group/store', {
@@ -49760,6 +49773,10 @@ $('#kanban-group-create').on('click', function () {
     console.log(error);
   });
 });
+/**
+ * Создание новой проектной задачи
+ */
+
 $('#kanban-task-create').on('click', function () {
   axios.post('/api/task/store', {
     name: $('#name').val(),

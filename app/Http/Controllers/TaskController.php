@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Отображение списка проектных задач в системе
      *
      * @return \Illuminate\Http\Response
      */
@@ -42,7 +42,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Создание нового проектной задачи и запись её в базу даныых с размещение в Kanban page
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -92,10 +92,11 @@ class TaskController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Обновление группы Kanban page при перемещении проектной задачи с записью в базу данных
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request  $request
+     * @param int  $task Идентификатор проектной задачи, которую перемещает пользователь
+     * @param int $grop Идентификатор группы в которую перемещена проектная задача
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $task, $group)

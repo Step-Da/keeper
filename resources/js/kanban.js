@@ -1,9 +1,9 @@
 const list_items = document.querySelectorAll('.list-item');
 const lists = document.querySelectorAll('.list');
 
-let draggedItem = null;
-let mirrorTask = null;
-let mirrorGroup = null;
+let draggedItem = null; // Объект, который перемещает пользователь
+let mirrorTask = null; // Идентификатор перемещенной проектной задачи
+let mirrorGroup = null; // Идентификатор группы, в котрую поместили проектную задачу
 
 for (let i = 0; i < list_items.length; i++) {
 	const item = list_items[i];
@@ -17,7 +17,6 @@ for (let i = 0; i < list_items.length; i++) {
 	});
 
 	item.addEventListener('dragend', function () { 
-        // console.log('Элемент: ' + mirrorTask + ' В группе: ' + mirrorGroup)
 		сhangingGroupOnMove(mirrorTask, mirrorGroup);
 		setTimeout(function () {
 			draggedItem.style.display = 'block';
@@ -49,6 +48,12 @@ for (let i = 0; i < list_items.length; i++) {
 	} 
 }
 
+/**
+ * Функция для отслеживания перемещения проектных задач пользователям по группам Kanban page
+ * 
+ * @param {number} task Идентификатор перемещенной проектной задачи
+ * @param {number} group Идентификатор группы, в которую перемещена проектная задача
+ */
 function сhangingGroupOnMove(task, group){
 	axios.put('/api/task/move/task/'+ task + '/group/' + group).then(response =>{
 		if(response.status == 200){
@@ -59,6 +64,9 @@ function сhangingGroupOnMove(task, group){
 	});
 }
 
+/**
+ * Создание новой группы для Kanban page
+ */
 $('#kanban-group-create').on('click', function(){
 	axios.post('/api/group/store', {
 		name: $('#group-name').val(),
@@ -73,6 +81,9 @@ $('#kanban-group-create').on('click', function(){
 	});
 });
 
+/**
+ * Создание новой проектной задачи
+ */
 $('#kanban-task-create').on('click', function(){
 	axios.post('/api/task/store', {
 		name: $('#name').val(),

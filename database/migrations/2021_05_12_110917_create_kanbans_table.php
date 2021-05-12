@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class CreateKanbansTable extends Migration
 {
     /**
-     * Run the migrations.
+     * Запуск миграции по созданию таблицы Kanbans
      *
      * @return void
      */
@@ -24,7 +24,7 @@ class CreateKanbansTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Откат миграции по созданию таблицы Kanbans
      *
      * @return void
      */

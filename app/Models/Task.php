@@ -19,6 +19,11 @@ class Task extends Model
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
+    /**
+     * Связь с таблицей Kanban
+     * 
+     * @return mixed $this Данные таблицы Kanbans для опредленной проектной задачи
+     */
     public function kanbans()
     {
         return $this->hasMany('App\Models\Kanban', 'task_id');

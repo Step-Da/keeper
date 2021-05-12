@@ -6,10 +6,10 @@ $(document).ready(() => {
     require('./lading'); // Подключение логики работы landing page
     require('./navbar'); // Подключение логики работы navbar на accout layout
     require('./todo'); // Подключение логики работы todo list на todo page
+    require('./kanban'); // Подключение логики работы Kanban page на account layout
     require('./supporting/counter'); // Подключение логики работы виджита counter
     require('./supporting/userpanel'); // Подключение логики работы таблицы на user page
     require('./supporting/search'); // Подключение логики работы живого поиска для web-ресурса
-    require('./kanban');
 });
 
 // Vue.component('v-appp', require('./components/Acc.vue').default);
