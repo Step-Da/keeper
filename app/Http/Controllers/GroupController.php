@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\GroupRequest;
 use App\Models\Group;
 use Illuminate\Http\Request;
 
@@ -30,10 +31,10 @@ class GroupController extends Controller
     /**
      * Создание новой группы для Kanban page и запись в базу данных
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\GroupRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GroupRequest $request)
     {
         $newGroup = new Group;
         $newGroup->name = $request->name;

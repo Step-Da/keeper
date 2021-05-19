@@ -29,6 +29,7 @@
                   <label class="text-lg" for="name">{{ __('Наименование группы') }}</label>
                   <div class="name-project-box">
                      <input id="group-name" name="name" type="text" class="form-control" placeholder="Название новой группы">
+                     <div id="error-alter" class="alert alert-danger mt-2 hidden"></div>
                   </div>
                </div>
                <label class="hidden" id="project">{{ $element->id }}</label>
@@ -36,7 +37,7 @@
          </form>
          <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Закрыть</button>
-            <button id="kanban-group-create" type="button" class="btn btn-success">Создать группу</button>
+            <button id="kanban-group-create" type="submit" class="btn btn-success">Создать группу</button>
          </div>
       </div>
    </div>

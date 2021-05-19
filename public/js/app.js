@@ -49761,16 +49761,22 @@ function сhangingGroupOnMove(task, group) {
 
 
 $('#kanban-group-create').on('click', function () {
+  var field = document.getElementById('error-alter');
   axios.post('/api/group/store', {
     name: $('#group-name').val(),
     project: $('#project').text()
   }).then(function (response) {
+    field.classList.add('hidden');
+
     if (response.status == 201) {
       location.reload();
       console.log('A new task group has been created');
     }
-  })["catch"](function (error) {
-    console.log(error);
+  })["catch"](function (errors) {
+    field.classList.remove('hidden');
+    $.each(errors.response.data.errors, function (index, value) {
+      field.innerHTML = value;
+    });
   });
 });
 /**
