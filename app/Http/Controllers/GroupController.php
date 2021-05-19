@@ -86,6 +86,11 @@ class GroupController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $existingGroup = Group::find($id);
+        if($existingGroup){
+            $existingGroup->delete();
+            return "Group delete";
+        }
+        return "Group not found";
     }
 }

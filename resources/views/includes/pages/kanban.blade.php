@@ -10,7 +10,7 @@
             <div class="col-md-4 mb-3 mt-3">
                <div class="mb-2 ml-3 ml uppercase font-bold text-xs tracking-wider flex flex-row items-center justify-start uppercase">
                   <span class="mr-2">{{ $group->name }}</span>
-                  <span id="delete-group-button" class="text-red-500 cursor-pointer"><i class="far fa-minus-square"></i></span>
+                  <span id="{{ $group->id }}" class="text-red-500 cursor-pointer delete-group-button"><i class="far fa-minus-square"></i></span>
                </div>
                <div id="{{ $group->id }}" class="list bg-blue-50 border-2 border-gray-400 border-dashed rounded-md">
                   @foreach ($kanbans as $kanban)

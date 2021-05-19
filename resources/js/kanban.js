@@ -107,3 +107,13 @@ $('#kanban-task-create').on('click', function(){
 		console.log(error);
 	});
 });
+
+$('.delete-group-button').on('click', function(){
+	axios.delete('/api/group/' + this.id).then(response =>{
+		if(response.status == 200){
+			location.reload();
+		}
+	}).catch(error =>{
+		console.log(error);
+	});
+});

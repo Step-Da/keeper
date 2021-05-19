@@ -49801,6 +49801,15 @@ $('#kanban-task-create').on('click', function () {
     console.log(error);
   });
 });
+$('.delete-group-button').on('click', function () {
+  axios["delete"]('/api/group/' + this.id).then(function (response) {
+    if (response.status == 200) {
+      location.reload();
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+});
 
 /***/ }),
 

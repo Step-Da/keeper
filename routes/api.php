@@ -36,6 +36,7 @@ Route::prefix('/user')->group(function(){
 
 Route::prefix('/group')->group(function(){
     Route::post('/store', [GroupController::class, 'store']);
+    Route::delete('/{id}', [GroupController::class, 'destroy']);
 });
 
 Route::prefix('/task')->group(function(){
