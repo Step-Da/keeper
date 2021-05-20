@@ -10,7 +10,7 @@
             <div class="col-md-4 mb-3 mt-3">
                <div class="mb-2 ml-3 ml uppercase font-bold text-xs tracking-wider flex flex-row items-center justify-start uppercase">
                   <span class="mr-2">{{ $group->name }}</span>
-                  <span id="{{ $group->id }}" class="text-red-500 cursor-pointer delete-group-button"><i class="far fa-minus-square"></i></span>
+                  <span id="{{ $group->id }}" title="Удалить группу" class="text-red-500 cursor-pointer delete-group-button"><i class="far fa-minus-square"></i></span>
                </div>
                <div id="{{ $group->id }}" class="list bg-blue-50 border-2 border-gray-400 border-dashed rounded-md">
                   @foreach ($kanbans as $kanban)
@@ -18,7 +18,10 @@
                         <div id="{{ $kanban->task_id }}" class="flex flex-col p-2 w-full bg-white rounded shadow-sm mb-2 list-item search" draggable="true">
                            <div class="flex items-start justify-start mb-2">
                               <div class="ml-2">
-                                 <div class="text-sm font-bold mb-1">{{ $kanban->tasks->name }}</div>
+                                 <div class="space-x-2">
+                                    <div class="text-sm font-bold mb-1 inline-block">{{ $kanban->tasks->name }}</div>
+                                    <span id="{{ $kanban->tasks->id }}" title="Отменить задачу" class="w-2 h-2 text-red-500 cursor-pointer inline-block delete-task"><i class="fas fa-ban"></i></span>
+                                 </div>
                                  <div class="text-xs text-gray-500">{{ $kanban->tasks->description }}</div>
                               </div>
                            </div>
@@ -43,7 +46,7 @@
                               </div>
                            </div>
                            <hr>
-                           <div class="flex flex-row items-center justify-start space-x-11">
+                           <div class="flex flex-row items-center justify-start space-x-9">
                               <div class="flex items-center justify-start p-2 space-x-2">
                                  <div class="flex-shrink-0 text-green-700"> {!! file_get_contents(asset('images/kanban/kanban-time-icon.svg')) !!} </div>
                                  <div class="text-sm"> {{ substr($kanban->tasks->created_at, 0, strpos($kanban->tasks->created_at, ' ' ))}} </div>
