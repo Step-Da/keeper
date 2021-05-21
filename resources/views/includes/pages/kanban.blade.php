@@ -20,7 +20,7 @@
                               <div class="ml-2">
                                  <div class="space-x-2">
                                     <div class="text-sm font-bold mb-1 inline-block">{{ $kanban->tasks->name }}</div>
-                                    <span id="{{ $kanban->tasks->id }}" title="Отменить задачу" class="w-2 h-2 text-red-500 cursor-pointer inline-block delete-task"><i class="fas fa-ban"></i></span>
+                                    <span id="{{ $kanban->tasks->id }}" title="Отменить задачу" class="w-2 h-2 text-red-500 cursor-pointer inline-block delete-task-button"><i class="fas fa-ban"></i></span>
                                  </div>
                                  <div class="text-xs text-gray-500">{{ $kanban->tasks->description }}</div>
                               </div>

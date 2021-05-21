@@ -120,6 +120,14 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $existingTask = Task::find($id);
+        $existingKanbanPosition = Kanban::where(['task_id' => $id])->first();
+        if($existingTask){
+            $existingKanbanPosition->delete();
+            $existingTask->delete();
+            return "Task delete";
+        }
+        
+        return "Task not found";
     }
 }
