@@ -31,7 +31,7 @@ class GroupController extends Controller
     /**
      * Создание новой группы для Kanban page и запись в базу данных
      *
-     * @param  App\Http\Requests\GroupRequest  $request
+     * @param  App\Http\Requests\GroupRequest  $request Данные переданные пользователем
      * @return \Illuminate\Http\Response
      */
     public function store(GroupRequest $request)
@@ -79,9 +79,9 @@ class GroupController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаление указанной логическской группы из базы данных
      *
-     * @param  int  $id
+     * @param  int  $id Идентификатор логической группы, уоторую удаляет пользователь
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

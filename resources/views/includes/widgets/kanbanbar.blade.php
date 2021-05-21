@@ -154,7 +154,7 @@
                <div class="flex flex-col pt-1">
                   <label for="endpoint" class="block text-sm font-medium text-gray-700">{{ __('Время исполнения задачи') }}</label>
                   <div class="name-task-box">
-                     <input id="endpoint" name="endpoint" type="date" class="form-control">
+                     <input id="endpoint" name="endpoint" type="date" class="form-control" min="{{ date('Y-m-d') }}">
                   </div>
                </div>
             </div>

@@ -108,6 +108,9 @@ $('#kanban-task-create').on('click', function(){
 	});
 });
 
+/**
+ * Удаление логической группы 
+ */
 $('.delete-group-button').on('click', function(){
 	axios.delete('/api/group/' + this.id).then(response =>{
 		if(response.status == 200){
@@ -118,6 +121,9 @@ $('.delete-group-button').on('click', function(){
 	});
 });
 
+/**
+ * Удаление проектной задачи
+ */
 $('.delete-task-button').on('click', function(){
 	axios.delete('/api/task/' + this.id).then(response =>{
 		if(response.status == 200){

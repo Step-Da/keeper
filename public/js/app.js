@@ -49801,6 +49801,10 @@ $('#kanban-task-create').on('click', function () {
     console.log(error);
   });
 });
+/**
+ * Удаление логической группы 
+ */
+
 $('.delete-group-button').on('click', function () {
   axios["delete"]('/api/group/' + this.id).then(function (response) {
     if (response.status == 200) {
@@ -49810,6 +49814,10 @@ $('.delete-group-button').on('click', function () {
     console.log(error);
   });
 });
+/**
+ * Удаление проектной задачи
+ */
+
 $('.delete-task-button').on('click', function () {
   axios["delete"]('/api/task/' + this.id).then(function (response) {
     if (response.status == 200) {

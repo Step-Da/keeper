@@ -44,7 +44,7 @@ class TaskController extends Controller
     /**
      * Создание нового проектной задачи и запись её в базу даныых с размещение в Kanban page
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request  $request Данные переданные пользователем
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -113,9 +113,9 @@ class TaskController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаление указанной проектной задачи из базы данных и логической группы
      *
-     * @param  int  $id
+     * @param  int  $id Идентификатор проектной задачи, которую удаляет пользователь
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
