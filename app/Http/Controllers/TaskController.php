@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
 use App\Models\Group;
 use App\Models\Kanban;
 use App\Models\Project;
@@ -47,7 +48,7 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request Данные переданные пользователем
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
         $newTask = new Task;
         $newTask->name = $request->name;
@@ -63,7 +64,7 @@ class TaskController extends Controller
         $kanban->task_id = $newTask->id;
         $kanban->save();
 
-        return $newTask;
+        return redirect()->route('account-kanban-page', ['id' => $request->project]);
     }
 
     

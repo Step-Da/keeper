@@ -36,6 +36,7 @@ Route::get('/account/users', 'UserController@index')->name('account-users-page')
 Route::get('/account/projects', 'ProjectController@index')->name('account-projects-page');
 
 Route::post('/account/projects/create', 'ProjectController@store')->name('account-project-create');
+Route::post('account/task/create', 'TaskController@store')->name('account-create-task');
 
 Route::get('/account/todos', 'TodoController@index')->name('account-todos-page');
 

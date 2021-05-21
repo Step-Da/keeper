@@ -58,7 +58,7 @@
                <span aria-hidden="true" class="text-red-600">&times;</span>
             </button>
          </div>
-         <form method="POST">
+         <form method="POST" action="{{ route('account-create-task') }}">
             @csrf
             <div class="modal-body">  
                <div class="flex flex-col pt-1">
@@ -96,9 +96,9 @@
                   </div>
                   <div class="col-4 col-sm-6">
                      <div class="flex flex-col pt-1">
-                        <label for="lavel" class="block text-sm font-medium text-gray-700">{{ __('Уровень проектной задачи') }}</label>
+                        <label for="level" class="block text-sm font-medium text-gray-700">{{ __('Уровень проектной задачи') }}</label>
                         <div class="inline-block relative">
-                           <select id="lavel" name="lavel" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none">
+                           <select id="level" name="level" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded leading-tight focus:outline-none">
                              <option disabled selected>Выбор уровня задачи</option>
                              <option value="small">Мылый приоритет</option>
                              <option value="middle">Средний приоритет</option>
@@ -157,16 +157,17 @@
                      <input id="endpoint" name="endpoint" type="date" class="form-control" min="{{ date('Y-m-d') }}">
                   </div>
                </div>
+               <input id="project" name="project" value="{{ $element->id }}" class="hidden">
+            </div>
+            <div class="modal-footer">
+               <button type="button" data-dismiss="modal" class="mt-1 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 text-white bg-red-500 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                  Закрыть
+               </button>
+               <button type="submit" class="mt-1 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-green-500 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
+                  Добавить новую проектную задачу
+               </button>
             </div>
          </form>
-         <div class="modal-footer">
-            <button type="button" data-dismiss="modal" class="mt-1 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 text-white bg-red-500 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
-               Закрыть
-            </button>
-            <button id="kanban-task-create" type="submit" class="mt-1 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-green-500 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm">
-               Добавить новую проектную задачу
-            </button>
-         </div>
       </div>
    </div>
 </div>

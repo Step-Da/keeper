@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class GroupRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Определение возможности пользователя для создания новой записи
      *
      * @return bool
      */
@@ -17,7 +17,7 @@ class GroupRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Получение правил проверки, применимые к запросу
      *
      * @return array
      */
@@ -28,6 +28,11 @@ class GroupRequest extends FormRequest
         ];
     }
 
+    /**
+     * Получение наименований атрибутов модели
+     * 
+     * @return array
+     */
     public function attributes()
     {
         return[
@@ -35,6 +40,11 @@ class GroupRequest extends FormRequest
         ];
     }
 
+    /**
+     * Получение сообщений при возникновении ошибки валидации 
+     * 
+     * @return array
+     */
     public function messages()
     {
         return[
