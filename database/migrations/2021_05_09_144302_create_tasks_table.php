@@ -16,7 +16,7 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name', 35)->unique();
-            $table->string('description')->default('Описание задачи нет.');
+            $table->string('description');
             $table->string('type');
             $table->string('level');
             $table->boolean('status')->default(false);

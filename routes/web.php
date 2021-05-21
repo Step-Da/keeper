@@ -15,29 +15,26 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
-Route::get('/auth/login', function(){
-    return view('auth.login');
-})->name('login-page');
 
-Route::get('/auth/register', function(){
-    return view('auth.register');
-})->name('register-page');
-
-Route::get('/account/main', 'HomeController@index')->name('home');
+Route::prefix('/auth')->group(function(){
+    Route::get('/login', 'Auth\LoginController@index')->name('login-page');
+    Route::get('/register', 'Auth\RegisterController@index')->name('register-page');
+});
 
 Route::get('/', function () {
-    return Auth::check() ? (view('includes.pages.main')) : (view('landing'));
+    return redirect()->route(Auth::check() ? ('account-main-page') : ('landing-page'));
+});
+
+Route::get('/landing', function(){
+    return view('landing');
 })->name('landing-page');
 
-Route::get('/account/main', 'HomeController@index')->name('account-main-page');
-
-Route::get('/account/users', 'UserController@index')->name('account-users-page');
-
-Route::get('/account/projects', 'ProjectController@index')->name('account-projects-page');
-
-Route::post('/account/projects/create', 'ProjectController@store')->name('account-project-create');
-Route::post('account/task/create', 'TaskController@store')->name('account-create-task');
-
-Route::get('/account/todos', 'TodoController@index')->name('account-todos-page');
-
-Route::get('/account/project/{id}/kanban', 'TaskController@index')->name('account-kanban-page');
+Route::prefix('/account')->group(function(){
+    Route::get('/main', 'HomeController@index')->name('account-main-page');
+    Route::get('/users', 'UserController@index')->name('account-users-page');
+    Route::get('/projects', 'ProjectController@index')->name('account-projects-page');
+    Route::get('/todos', 'TodoController@index')->name('account-todos-page');
+    Route::get('/project/{id}/kanban', 'TaskController@index')->name('account-kanban-page');
+    Route::post('/projects/create', 'ProjectController@store')->name('account-project-create');
+    Route::post('/task/create', 'TaskController@store')->name('account-create-task');
+});
