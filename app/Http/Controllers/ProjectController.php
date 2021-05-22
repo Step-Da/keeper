@@ -7,6 +7,8 @@ use App\Models\Group;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
 
 class ProjectController extends Controller
 {
@@ -45,9 +47,12 @@ class ProjectController extends Controller
         $newProject = new Project;
         $newProject->name = $request->name;
         $newProject->description = $request->description;
-        $newProject->path = $request->path;
+        $newProject->path = $request->path ;
         $newProject->user_id = Auth::user()->id;
         $newProject->save();
+
+        $path = storage_path('local').$request->path;
+        File::makeDirectory($path, $mode = 0777, true, true);
 
         return redirect()->route('account-projects-page');
     }
@@ -96,8 +101,8 @@ class ProjectController extends Controller
     {
         $existingProject = Project::find($id);
         if($existingProject){
+            File::deleteDirectory(storage_path('local').$existingProject->path);
             $existingProject->delete();
-            
             return "Project delete";
         }
 
