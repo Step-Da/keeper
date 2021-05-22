@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
 use App\Models\Group;
+use App\Models\Kanban;
 use App\Models\Project;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -19,7 +21,7 @@ class ProjectController extends Controller
      * @return mixed $project Данные о всех программных проектов в базе данных
      */
     public function index()
-    {
+    { 
         return view('includes.pages.projects',[
             'projects' => Project::get(),
             'groups' => Group::get(),
