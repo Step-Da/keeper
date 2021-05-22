@@ -49625,7 +49625,7 @@ $(document).ready(function () {
   __webpack_require__(/*! ./supporting/counter */ "./resources/js/supporting/counter.js"); // Подключение логики работы виджита counter
 
 
-  __webpack_require__(/*! ./supporting/userpanel */ "./resources/js/supporting/userpanel.js"); // Подключение логики работы таблицы на user page
+  __webpack_require__(/*! ./supporting/addition */ "./resources/js/supporting/addition.js"); // Подключение вспомогательной логики на account layout
 
 
   __webpack_require__(/*! ./supporting/search */ "./resources/js/supporting/search.js"); // Подключение логики работы живого поиска для web-ресурса
@@ -49892,6 +49892,41 @@ function dropdownHandler(element) {
 
 /***/ }),
 
+/***/ "./resources/js/supporting/addition.js":
+/*!*********************************************!*\
+  !*** ./resources/js/supporting/addition.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Удаление аккаунта пользователя на странице user page
+ */
+$('.delete-user-target').on('click', function () {
+  axios["delete"]('/api/user/' + $(this).val()).then(function (response) {
+    if (response.status == 200) {
+      console.log('the selected user account has been deleted');
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+});
+/**
+ * Удаление программного проекта из библиотеки
+ */
+
+$('.delete-project-button').on('click', function () {
+  axios["delete"]('/api/project/' + this.id).then(function (response) {
+    if (response.status == 200) {
+      location.reload();
+    }
+  })["catch"](function (error) {
+    console.log(error);
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/js/supporting/counter.js":
 /*!********************************************!*\
   !*** ./resources/js/supporting/counter.js ***!
@@ -49934,28 +49969,6 @@ $("#search-field").keyup(function () {
     } else {
       $(this).show();
     }
-  });
-});
-
-/***/ }),
-
-/***/ "./resources/js/supporting/userpanel.js":
-/*!**********************************************!*\
-  !*** ./resources/js/supporting/userpanel.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * Удаление аккаунта пользователя на странице user page
- */
-$('.delete-user-target').on('click', function () {
-  axios["delete"]('/api/user/' + $(this).val()).then(function (response) {
-    if (response.status == 200) {
-      console.log('the selected user account has been deleted');
-    }
-  })["catch"](function (error) {
-    console.log(error);
   });
 });
 

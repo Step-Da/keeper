@@ -8,7 +8,7 @@ $(document).ready(() => {
     require('./todo'); // Подключение логики работы todo list на todo page
     require('./kanban'); // Подключение логики работы Kanban page на account layout
     require('./supporting/counter'); // Подключение логики работы виджита counter
-    require('./supporting/userpanel'); // Подключение логики работы таблицы на user page
+    require('./supporting/addition'); // Подключение вспомогательной логики на account layout
     require('./supporting/search'); // Подключение логики работы живого поиска для web-ресурса
 });
 

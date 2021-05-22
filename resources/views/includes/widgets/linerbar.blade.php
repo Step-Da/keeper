@@ -8,7 +8,6 @@
          </div>
       </div>
    </div>
-   @include('includes.widgets.validation')
 </div>
 
 {{-- Модальная форма для создания нового программного проекта --}}

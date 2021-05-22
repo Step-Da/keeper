@@ -10,3 +10,16 @@ $('.delete-user-target').on('click', function(){
         console.log(error);
     });
 });
+
+/**
+ * Удаление программного проекта из библиотеки
+ */
+$('.delete-project-button').on('click', function(){
+    axios.delete('/api/project/' + this.id).then(response =>{
+        if(response.status == 200){
+            location.reload();
+        }
+    }).catch(error =>{
+        console.log(error);
+    });
+});

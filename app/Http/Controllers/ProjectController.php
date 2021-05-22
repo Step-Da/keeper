@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Models\Group;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,8 @@ class ProjectController extends Controller
     public function index()
     {
         return view('includes.pages.projects',[
-            'project' => Project::get(),
+            'projects' => Project::get(),
+            'groups' => Group::get(),
         ]);
     }
 
@@ -85,13 +87,20 @@ class ProjectController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Удаление указанного программного проекта из базы данных
      *
-     * @param  int  $id
+     * @param  int  $id Идентификатор программного проекта, который удаляет пользователь
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $existingProject = Project::find($id);
+        if($existingProject){
+            $existingProject->delete();
+            
+            return "Project delete";
+        }
+
+        return "Project not found";
     }
 }

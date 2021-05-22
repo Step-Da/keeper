@@ -44,3 +44,7 @@ Route::prefix('/task')->group(function(){
     Route::put('/move/task/{task}/group/{group}',[TaskController::class, 'update']);
     Route::delete('/{id}', [TaskController::class, 'destroy']);
 });
+
+Route::prefix('/project')->group(function(){
+    Route::delete('/{id}', [ProjectController::class, 'destroy']);
+});
