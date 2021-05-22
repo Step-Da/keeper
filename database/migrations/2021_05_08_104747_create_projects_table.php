@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name', 35)->unique();
             $table->string('description', 100)->default('Описание нет');
-            $table->string('path');
+            $table->string('path', 35);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
