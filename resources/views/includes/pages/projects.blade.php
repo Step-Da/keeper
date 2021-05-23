@@ -16,11 +16,9 @@
                </div>
                <div class="relative w-full p-7">
                   <div class="progress-bar-container absolute text-right">
-                     @foreach ($groups as $group) 
-                     @endforeach
                      {{-- <div class="progress-bar-line bg-gray-200 rounded-sm w-full h-1.5"></div>
                      <span class="text-sm opacity-60 tracking-wide">10/5 процесс этапов </span> --}}
-                     @if ($group->project_id != $project->id)
+                     @if ($project->remove)
                         <span id="{{ $project->id }}" class="text-sm tracking-wide text-red-400 cursor-pointer delete-project-button">Зыкрыть проект</span>
                      @endif
                   </div>

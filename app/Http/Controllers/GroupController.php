@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\GroupRequest;
 use App\Models\Group;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -40,6 +41,10 @@ class GroupController extends Controller
         $newGroup->name = $request->name;
         $newGroup->project_id = $request->project;
         $newGroup->save();
+
+        $existingProject = Project::find($request->project);
+        $existingProject->remove = false;
+        $existingProject->save();
 
         return $newGroup;
     }
@@ -89,7 +94,14 @@ class GroupController extends Controller
         $existingGroup = Group::find($id);
         if($existingGroup){
             $existingGroup->delete();
-            return "Group delete";
+            $removeStatusProject = Group::where(['project_id' => $existingGroup->project_id])->count();
+            if($removeStatusProject == 0){
+                $existingProject = Project::find($existingGroup->project_id);
+                $existingProject->remove = true;
+                $existingProject->save();
+                return 'remove satatus changed';
+            }
+            return 'Group delete';
         }
         return "Group not found";
     }

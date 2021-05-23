@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('path', 35);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->boolean('remove')->default(false);
             $table->timestamps();
         });
     }

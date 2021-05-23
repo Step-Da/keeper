@@ -21,7 +21,7 @@ class ProjectController extends Controller
      * @return mixed $project Данные о всех программных проектов в базе данных
      */
     public function index()
-    { 
+    {  
         return view('includes.pages.projects',[
             'projects' => Project::get(),
             'groups' => Group::get(),
@@ -78,7 +78,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
