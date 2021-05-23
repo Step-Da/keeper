@@ -23,16 +23,18 @@
         </thead>
         <tbody>
             @foreach ($data as $user)
-                <tr>
+                <tr class="search">
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->email}}</td>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->role }}</td>
                     <td>{{ $user->updated_at }}</td>
                     <td>
-                        <button value="{{$user->id}}" class="delete-user-target">
-                            <img class="w-5 h-5 cursor-pointer " src="{{ asset('images/account/cancel.svg') }}">
-                        </button> 
+                        @if ($user->id != Auth::user()->id)
+                            <button value="{{$user->id}}" class="delete-user-target">
+                                <img class="w-5 h-5 cursor-pointer " src="{{ asset('images/account/cancel.svg') }}">
+                            </button>
+                        @endif
                     </td>
                 </tr>
             @endforeach

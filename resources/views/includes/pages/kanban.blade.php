@@ -53,9 +53,13 @@
                                  <div class="text-sm"> {{ substr($kanban->tasks->created_at, 0, strpos($kanban->tasks->created_at, ' ' ))}} </div>
                               </div>
                               <div class="flex items-center justify-start p-2 space-x-2">
-                                 <div class="flex-shrink-0 text-pink-700"> {!! file_get_contents(asset('images/kanban/kanban-time-icon.svg')) !!} </div>
+                                 
                                  <div class="text-sm"> {{ substr($kanban->tasks->endpoint, 0, strpos($kanban->tasks->endpoint, ' ' ))}} </div>
                               </div>
+                           </div>
+                           <div class="flex items-center justify-start p-2 space-x-2">
+                              <div class="flex-shrink-0"><i class="fas {{ $kanban->tasks->status ? ('fa-check text-green-500') : ('fa-times text-red-500') }}"></i></div>
+                              <div class="flex-shrink-0 text-sm">{{$kanban->tasks->status ? ('Задача выполнена'): ('Задача не выполнена')}}</div>
                            </div>
                         </div>
                      @endif
