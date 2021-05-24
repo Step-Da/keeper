@@ -35,6 +35,7 @@ Route::prefix('/account')->group(function(){
     Route::get('/projects', 'ProjectController@index')->name('account-projects-page');
     Route::get('/todos', 'TodoController@index')->name('account-todos-page');
     Route::get('/project/{id}/kanban', 'TaskController@index')->name('account-kanban-page');
+    Route::get('/work','WorkerController@index')->name('account-worker-task-page');
     Route::post('/projects/create', 'ProjectController@store')->name('account-project-create');
     Route::post('/task/create', 'TaskController@store')->name('account-create-task');
 });

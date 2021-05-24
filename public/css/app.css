@@ -11105,3 +11105,64 @@ div.uploader {
   cursor: grabbing;
 }
 
+.tasks-worker-table {
+  max-height: 800px;
+  overflow: auto;
+  border-radius: 5px;
+}
+
+.worker-table-column {
+  padding: 10px 10px;
+  margin-left: 10px;
+}
+
+.table-worker-header {
+  position: sticky;
+  top: 0px;
+  z-index: 1;
+  background: linear-gradient(90deg, #515ada 0%, #e5bffc 100%);
+}
+
+.table-worker-header h2 {
+  margin: 0 20px;
+  padding: 20px 0 0;
+}
+
+.table-worker-header .row-table {
+  color: white;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.row-table {
+  display: flex;
+  margin: 0;
+}
+
+.table-body .row-table:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.task-status {
+  min-width: 80px;
+}
+
+.task-name {
+  min-width: 130px;
+}
+
+.task-type {
+  min-width: 80px;
+}
+
+.task-level {
+  min-width: 80px;
+}
+
+.task-endpoint {
+  min-width: 130px;
+}
+

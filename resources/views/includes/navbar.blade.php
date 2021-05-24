@@ -15,26 +15,39 @@
                     </div>
                 </div>
             </li>
-            <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
-                <div class="flex items-center">
-                    <div class="flex items-center justify-center text-xs">
-                        <a class="text-tg" href="{{ route('account-users-page') }}">
-                            <i class="fas fa-user-friends mr-3"></i>
-                            <span class="text-sm">Пользователи</span>
-                        </a>   
+            @if (Auth::user()->role == 'manager')
+                <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center text-xs">
+                            <a class="text-tg" href="{{ route('account-users-page') }}">
+                                <i class="fas fa-user-friends mr-3"></i>
+                                <span class="text-sm">Пользователи</span>
+                            </a>   
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
-                <div class="flex items-center">
-                    <div class="flex items-center justify-center text-xs">
-                        <a class="text-tg" href="{{ route('account-projects-page') }}">
-                            <i class="fas fa-project-diagram mr-3"></i>
-                            <span class="text-sm">Проекты</span>
-                        </a>
-                    </div>    
-                </div>
-            </li>
+                </li>
+                <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center text-xs">
+                            <a class="text-tg" href="{{ route('account-projects-page') }}">
+                                <i class="fas fa-project-diagram mr-3"></i>
+                                <span class="text-sm">Проекты</span>
+                            </a>
+                        </div>    
+                    </div>
+                </li>
+            @else
+                <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-center text-xs">
+                            <a class="text-tg" href="{{ route('account-worker-task-page') }}">
+                                <i class="fas fa-thumbtack mr-3"></i>
+                                <span class="text-sm">Мои задачи</span>
+                            </a>
+                        </div>    
+                    </div>
+                </li>
+            @endif 
             <li class="flex w-full justify-between text-gray-600 hover:text-indigo-700 cursor-pointer items-center mb-6">
                 <div class="flex items-center">
                     <div class="flex items-center justify-center text-xs">
