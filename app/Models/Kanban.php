@@ -18,4 +18,9 @@ class Kanban extends Model
     {
         return $this->belongsTo('App\Models\Task', 'task_id', 'id');
     }
+
+    public function groups()
+    {
+        return $this->belongsTo('App\Models\Group', 'group_id', 'id');
+    }
 }

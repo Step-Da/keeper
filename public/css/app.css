@@ -11151,11 +11151,11 @@ div.uploader {
 }
 
 .task-name {
-  min-width: 130px;
+  min-width: 300px;
 }
 
 .task-type {
-  min-width: 80px;
+  min-width: 100px;
 }
 
 .task-level {
@@ -11163,6 +11163,6 @@ div.uploader {
 }
 
 .task-endpoint {
-  min-width: 130px;
+  min-width: 150px;
 }
 

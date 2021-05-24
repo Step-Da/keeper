@@ -28,4 +28,9 @@ class Group extends Model
     {
         return $this->belongsTo('App\Models\Project', 'project_id', 'id');
     }
+
+    public function kanbans()
+    {
+        return $this->hasMany('App\Models\Kanban', 'group_id');
+    }
 }

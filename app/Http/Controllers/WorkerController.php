@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kanban;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class WorkerController extends Controller
@@ -13,7 +15,10 @@ class WorkerController extends Controller
      */
     public function index()
     {
-        return view('includes.pages.worker');
+        return view('includes.pages.worker',[
+            'projects' => Project::get(),
+            'kanbans' => Kanban::get(),
+        ]);
     }
 
     /**
