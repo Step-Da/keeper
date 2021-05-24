@@ -13,3 +13,7 @@
 @import './styles/project.scss'; // Подключение стилей для project page на account layout
 @import './styles/kanban.scss';  // Подключение стилей для kanban page на account layout
 @import './styles/worker.scss'; // Подключение стилей для mytask page на account layout
+
+body{
+    background: $body-bg-image;
+}

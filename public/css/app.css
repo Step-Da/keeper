@@ -11166,3 +11166,7 @@ div.uploader {
   min-width: 150px;
 }
 
+body {
+  background: url("/images/account/background.png");
+}
+
