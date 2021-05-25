@@ -29,7 +29,7 @@
             <div class="w-full h-full">
                 <div class="flex flex-no-wrap">
                     @include('includes.navbar')
-                    <div class="w-full">
+                    <div class="w-full h-full">
                         @include('includes.sidebar')
                         <div class="container mx-auto py-10 h-64 md:w-4/5 w-11/12 px-6">
                             <main class="w-full h-full">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kanban;
 use App\Models\Project;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class WorkerController extends Controller
@@ -18,6 +19,14 @@ class WorkerController extends Controller
         return view('includes.pages.worker',[
             'projects' => Project::get(),
             'kanbans' => Kanban::get(),
+        ]);
+    }
+
+    public function description($project, $task)
+    {   
+        return view('includes.widgets.description', [
+            'project' => Project::find($project),
+            'task' => Task::find($task),
         ]);
     }
 

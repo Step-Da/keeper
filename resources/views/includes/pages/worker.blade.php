@@ -31,7 +31,9 @@
                      <div class="worker-table-column task-level">{{ $kanban->tasks->level }}</div>
                      <div class="worker-table-column task-endpoint">{{ substr($kanban->tasks->endpoint, 0, strpos($kanban->tasks->endpoint, ' ' ))}}</div>
                      <div class="worker-table-column task-endpoint">
-                        <span id="{{ $kanban->tasks->id }}" class="cursor-pointer hover:text-yellow-600"><i class="far fa-eye"></i></span>
+                        <a href="{{ route('account-worker-description-page', ['project' => $project->id, 'task' => $kanban->tasks->id]) }}">
+                           <span id="{{ $kanban->tasks->id }}" class="cursor-pointer hover:text-yellow-600"><i class="far fa-eye"></i></span>
+                        </a>
                      </div>
                   </div>
                @endif   

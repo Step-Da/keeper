@@ -1,5 +1,4 @@
-<div style="min-height: 700px"
-    class="w-64 absolute lg:relative bg-white shadow h-screen flex-col justify-between hidden lg:flex pb-12">
+<div class="w-64 absolute lg:relative bg-white shadow h-screen flex-col justify-between hidden lg:flex pb-12">
     <div class="px-8">
         <div class="h-16 w-full flex items-center toggleColour">
             <p class="text-gray-800 no-underline hover:no-underline font-bold text-2xl lg:text-4xl">{{ __('Keeper') }}</p>
