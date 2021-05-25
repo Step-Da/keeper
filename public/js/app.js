@@ -49993,6 +49993,9 @@ $('.worker-clouse-task').on('click', function () {
     console.log(error);
   });
 });
+$('#file').on('change', function () {
+  document.getElementById("file-name").innerHTML = document.getElementById('file').files[0].name;
+});
 
 /***/ }),
 

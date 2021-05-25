@@ -39,8 +39,13 @@ class WorkerController extends Controller
             $exisitingTask->save();
             return $this->checkingTaskCompletion($id);
         }
-        
+
         return 'Task not found';
+    }
+
+    public function load(Request $request)
+    {
+        dd($request);
     }
 
     public function checkingTaskCompletion($id)

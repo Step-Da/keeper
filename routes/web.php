@@ -39,4 +39,5 @@ Route::prefix('/account')->group(function(){
     Route::get('/work/project/{project}/task/{task}', 'WorkerController@description')->name('account-worker-description-page');
     Route::post('/projects/create', 'ProjectController@store')->name('account-project-create');
     Route::post('/task/create', 'TaskController@store')->name('account-create-task');
+    Route::post('/worker/load', 'WorkerController@load')->name('account-cpmpleted-task');
 });
