@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kanban;
 use App\Models\Project;
 use App\Models\Task;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class WorkerController extends Controller
@@ -30,6 +31,28 @@ class WorkerController extends Controller
         ]);
     }
 
+    public function simple($id)
+    {
+        $exisitingTask = Task::find($id);
+        if($exisitingTask){
+            $exisitingTask->completed_at = Carbon::now();
+            $exisitingTask->save();
+            return $this->checkingTaskCompletion($id);
+        }
+        
+        return 'Task not found';
+    }
+
+    public function checkingTaskCompletion($id)
+    {
+        $checkedTask = Task::find($id);
+        if($checkedTask->completed_at <= $checkedTask->endpoint){ $checkedTask->status = true; }
+        else{ $checkedTask->status = false; }
+        $checkedTask->save();
+
+        return $checkedTask;
+    }
+   
     /**
      * Show the form for creating a new resource.
      *

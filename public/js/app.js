@@ -49630,6 +49630,8 @@ $(document).ready(function () {
 
   __webpack_require__(/*! ./supporting/search */ "./resources/js/supporting/search.js"); // Подключение логики работы живого поиска для web-ресурса
 
+
+  __webpack_require__(/*! ./supporting/worker */ "./resources/js/supporting/worker.js");
 }); // Vue.component('v-appp', require('./components/Acc.vue').default);
 
 var app = new Vue({
@@ -49969,6 +49971,26 @@ $("#search-field").keyup(function () {
     } else {
       $(this).show();
     }
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/supporting/worker.js":
+/*!*******************************************!*\
+  !*** ./resources/js/supporting/worker.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.worker-clouse-task').on('click', function () {
+  axios.put('/api/worker/simple/' + this.id).then(function (response) {
+    if (response.status == 200) {
+      history.back();
+      console.log('Задача завершена');
+    }
+  })["catch"](function (error) {
+    console.log(error);
   });
 });
 

@@ -10,6 +10,7 @@ $(document).ready(() => {
     require('./supporting/counter'); // Подключение логики работы виджита counter
     require('./supporting/addition'); // Подключение вспомогательной логики на account layout
     require('./supporting/search'); // Подключение логики работы живого поиска для web-ресурса
+    require('./supporting/worker');
 });
 
 // Vue.component('v-appp', require('./components/Acc.vue').default);
