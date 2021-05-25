@@ -51,10 +51,11 @@ class ProjectController extends Controller
         $newProject->description = $request->description;
         $newProject->path = $request->path ;
         $newProject->user_id = Auth::user()->id;
+        $newProject->remove = true;
         $newProject->save();
 
-        $path = storage_path('local').$request->path;
-        File::makeDirectory($path, $mode = 0777, true, true);
+        // $path = storage_path().$request->path;
+        // File::makeDirectory($path, $mode = 0777, true, true);
 
         return redirect()->route('account-projects-page');
     }

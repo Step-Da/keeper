@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Task;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class WorkerController extends Controller
 {
@@ -18,7 +19,7 @@ class WorkerController extends Controller
     public function index()
     {
         return view('includes.pages.worker',[
-            'projects' => Project::get(),
+            'projects' => Project::where(['remove' => false])->get(),
             'kanbans' => Kanban::get(),
         ]);
     }
@@ -45,17 +46,33 @@ class WorkerController extends Controller
 
     public function load(Request $request)
     {
-        dd($request);
+        if ($request->isMethod('post') && $request->file('file')) {
+            $projectFloader = Project::find($request->project)->only('path');
+            $uploadFile = $request->file('file');
+            $uploadFloader = $projectFloader['path']; 
+            if($request->path) $uploadFloader = $projectFloader['path'].'/'.$request->path;
+            $fileName = $uploadFile->getClientOriginalName();
+            Storage::putFileAs($uploadFloader, $uploadFile, $fileName);
+        }
+
+        $exisitingTask = Task::find($request->task);
+        if($exisitingTask){
+            $exisitingTask->completed_at = Carbon::now();
+            $exisitingTask->save();
+            $this->checkingTaskCompletion($request->task);
+        }
+
+        return redirect()->route('account-worker-task-page');
     }
 
     public function checkingTaskCompletion($id)
     {
         $checkedTask = Task::find($id);
-        if($checkedTask->completed_at <= $checkedTask->endpoint){ $checkedTask->status = true; }
-        else{ $checkedTask->status = false; }
+        $completedDate = substr($checkedTask->completed_at, 0, strpos($checkedTask->completed_at, ' ' ));
+        $endpointDate = substr($checkedTask->endpoint, 0, strpos($checkedTask->endpoint, ' ' ));
+        if(($endpointDate == $completedDate) || ($endpointDate > $completedDate)) $checkedTask->status = true; 
+        else $checkedTask->status = false; 
         $checkedTask->save();
-
-        return $checkedTask;
     }
    
     /**

@@ -54,7 +54,7 @@
                <p class="text-gray-600">Выполнение задачи</p>
                   @switch($task->type)
                      @case('load')
-                        <form method="POST" action="{{ route('account-cpmpleted-task') }}">
+                        <form method="POST" action="{{ route('account-cpmpleted-task') }}" enctype="multipart/form-data">
                            @csrf
                            <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                               <div class="space-y-1 text-center">
