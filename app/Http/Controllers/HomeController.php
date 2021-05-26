@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Task;
 use App\Models\Todo;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -26,13 +27,15 @@ class HomeController extends Controller
      * @return int $todo Количество глобальных задач в системе для счетчика 
      * @return int $user Количество профилей пользователей в систепме для счетчика 
      * @return int $projects Количество программных проектов в системе для счетчика 
+     * @return int $errors Количество ошибок при разработке программного проекта
      */
     public function index()
     {
         return view('includes.pages.main', [
-            'todo' => Todo::count(),
-            'user' => User::count(),
-            'project' => Project::count(),
+            'todos' => Todo::count(),
+            'users' => User::count(),
+            'projects' => Project::count(),
+            'errors' => Task::where(['status' => false, 'completed_at' => null])->count(),
         ]);
     }
 }

@@ -11170,3 +11170,8 @@ body {
   background: url("/images/account/background.png");
 }
 
+.doughnut-chart {
+  width: 650px;
+  height: 400px;
+}
+

@@ -10,7 +10,8 @@ $(document).ready(() => {
     require('./supporting/counter'); // Подключение логики работы виджита counter
     require('./supporting/addition'); // Подключение вспомогательной логики на account layout
     require('./supporting/search'); // Подключение логики работы живого поиска для web-ресурса
-    require('./supporting/worker');
+    require('./supporting/worker'); // Подключение логики работы для выполнения проектной задачи worker page на account layout
+    require('./chart'); // Подключение логики работы для построения графиков для worker page на account layout
 });
 
 // Vue.component('v-appp', require('./components/Acc.vue').default);

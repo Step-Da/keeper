@@ -111,4 +111,18 @@ class ProjectController extends Controller
 
         return "Project not found";
     }
+
+    /**
+     * Формирование данных проектных задач для графика
+     * 
+     * @return array Данные проектных задач для построения графика
+     */
+    public function liner()
+    {
+        return [
+            'all' => Project::count(),
+            'developing' => Project::where(['remove' => false])->count(),
+            'remove' => Project::where(['remove' => true])->count(),
+        ];
+    }
 }

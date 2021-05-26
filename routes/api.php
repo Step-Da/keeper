@@ -53,3 +53,8 @@ Route::prefix('/project')->group(function(){
 Route::prefix('/worker')->group(function(){
     Route::put('/simple/{id}', [WorkerController::class, 'simple']);
 });
+
+Route::prefix('/chart')->group(function(){
+    Route::get('/liner', [ProjectController::class, 'liner']);
+    Route::get('/polar', [TaskController::class, 'polar']);
+});

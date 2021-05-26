@@ -131,4 +131,18 @@ class TaskController extends Controller
         
         return "Task not found";
     }
+
+    /**
+     * Формирование данных проектных задач для графика
+     * 
+     * @return array Данные проектных задач для построения графика
+     */
+    public function polar()
+    {
+        return[
+           'all' => Task::count(),
+           'true' => Task::where(['status' => true])->count(),
+           'false' => Task::where(['status' => false])->count(),
+        ];
+    }
 }
